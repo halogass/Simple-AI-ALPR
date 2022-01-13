@@ -1,0 +1,5 @@
+classes = 37
+train  = train.txt
+valid  = test.txt
+names = platnomor.labels
+backup = backupplat-yolov4-tiny-3l/
