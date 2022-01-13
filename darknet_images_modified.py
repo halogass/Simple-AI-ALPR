@@ -85,9 +85,7 @@ def prosesDigitPlat(digitPlatNom, keyakinanPlat):
     outputDigit = "".join(bufferDigit)
     #print(outputDigit + ' Keyakinan : ' + str(hasilKeyakinan))
     return outputDigit, hasilKeyakinan
-        
 
-#platNomor[0] = [0, 0, 0, 0, 'Plat Nomor', 1]
 
 def parseLPR(detections):
     digitsBuffer = detections
@@ -96,7 +94,7 @@ def parseLPR(detections):
     for labelPlat, confidencePlat, bboxPlat in detections:
         if labelPlat == 'NOPOL':
             bufTitikPlat = bbox2points(bboxPlat)
-            print('platnomor terdeteksi ' + str(bufTitikPlat))
+            #print('platnomor terdeteksi ' + str(bufTitikPlat))
             digitKe = 1
             bufferDigit = []
             for labelDigit, confidenceDigit, bboxDigit in digitsBuffer:
