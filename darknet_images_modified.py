@@ -102,18 +102,11 @@ def parseLPR(detections):
                     if (checkInsidePlat(bufTitikPlat, bboxDigit)):
                         xDigit, yDigit, wDigit, hDigit = bboxDigit
                         bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
-                        if digitKe == 1:
-                            digitKe = digitKe + 1
-                        elif digitKe != 1:
-                            digitKe = digitKe + 1
-                        if digitKe >= 2:
-                            adaDigit = True
-                        else:
-                            adaDigit = False
-            if adaDigit == True:
+                        digitKe = digitKe + 1
+            if adaDigit >= 2:
                 hasilDigit = prosesDigitPlat(bufferDigit, (float(confidencePlat)/100))
                 platNomor.append([bufTitikPlat + hasilDigit])
-    print(platNomor)
+    return platNomor
 
 def bbox2points(bbox):
     """
@@ -141,7 +134,7 @@ def save_annotations(name, image, detections, class_names):
 
 def main():
 
-    random.seed(3)  # deterministic bbox colors
+    random.seed(3)
     network, class_names, class_colors = darknet.load_network(
         configFile,
         labelsFile,
