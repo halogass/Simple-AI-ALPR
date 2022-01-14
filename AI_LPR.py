@@ -98,12 +98,7 @@ def drawPlat(dataPlatNom, gambar):
                     (255, 255, 255), 1)
     return gambar
 
-
 def bbox2points(bbox):
-    """
-    From bounding box yolo format
-    to corner points cv2 rectangle
-    """
     x, y, w, h = bbox
     xmin = x - (w / 2)
     xmax = x + (w / 2)
@@ -111,20 +106,7 @@ def bbox2points(bbox):
     ymax = y + (h / 2)
     return xmin, ymin, xmax, ymax
 
-def save_annotations(name, image, detections, class_names):
-    """
-    Files saved with image_name.txt and relative coordinates
-    """
-    file_name = os.path.splitext(name)[0] + ".txt"
-    with open(file_name, "w") as f:
-        for label, confidence, bbox in detections:
-            left, top, right, bottom = bbox2points(bbox)
-            #label = class_names.index(label)
-            f.write("{} {:.4f} {:.4f} {:.4f} {:.4f} {:.4f}\n".format(label, left, top, right, bottom, float(confidence)))
-
-
 def main():
-
     random.seed(3)
     network, class_names, class_colors = darknet.load_network(
         configFile,
@@ -134,39 +116,23 @@ def main():
     )
 
     frame = cv2.imread('platnomor.jpg')
-    #vid.set(cv2.CAP_PROP_BUFFERSIZE, 10)
-    
 
-    index = 0
     while True:
-        #return_value, frame = vid.read()
-        #if return_value:
-        #    image = Image.fromarray(frame)
-        #else:
-        #    print('Video has ended or failed, try a different video format!')
-        #    break
         heightA, widthA, _ = frame.shape
         dim = (widthA, heightA)
-        #prev_time = time.time()
+        prev_time = time.time()
         
         image, detections, networkDimension = image_detection(
             frame, network, class_names, class_colors, threshDet
             )
-        #if args.save_labels:
-        save_annotations('person.jpg', image, detections, class_names)
-        #darknet.print_detections(detections, args.ext_output)
-        #fps = vid.get(5)
-        #fps = int(vid.get(cv2.CAP_PROP_FPS))
-        #fps = int(1/(time.time() - prev_time))
-        #print("FPS: {}".format(fps))
+
         nomorPlat = parseLPR(detections, networkDimension, dim)
         gambarA = drawPlat(nomorPlat, frame)
-        #resized = cv2.resize(gambarA, dim, interpolation = cv2.INTER_AREA)
-        
+        latencyAi = (time.time() - prev_time)
+        print('Latensi : ' + str(latencyAi))
         cv2.imshow('Inference', gambarA)
         if cv2.waitKey() & 0xFF == ord('q'):
             break
-        index += 1
         break
 
 
