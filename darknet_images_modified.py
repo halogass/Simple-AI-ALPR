@@ -6,7 +6,6 @@ import time
 import cv2
 import numpy as np
 import darknet
-from numba import njit
 from PIL import Image
 
 weightFile = 'platnomor.weights'
@@ -39,6 +38,7 @@ def image_detection(image_path, network, class_names, class_colors, thresh):
     # Create one with image we reuse for each detect
     width = darknet.network_width(network)
     height = darknet.network_height(network)
+    networkDimension = [width, height]
     darknet_image = darknet.make_image(width, height, 3)
 
     image = image_path
@@ -49,17 +49,9 @@ def image_detection(image_path, network, class_names, class_colors, thresh):
     darknet.copy_image_from_bytes(darknet_image, image_resized.tobytes())
     detections = darknet.detect_image(network, class_names, darknet_image, thresh=thresh)
     darknet.free_image(darknet_image)
-    image = darknet.draw_boxes(detections, image_resized, class_colors)
-    return cv2.cvtColor(image, cv2.COLOR_BGR2RGB), detections
-
-
-def convert2relative(image, bbox):
-    """
-    YOLO format use relative coordinates for annotation
-    """
-    x, y, w, h = bbox
-    height, width, _ = image.shape
-    return x/width, y/height, w/width, h/height
+    #image = darknet.draw_boxes(detections, image_resized, class_colors)
+    image = image_resized
+    return cv2.cvtColor(image, cv2.COLOR_BGR2RGB), detections, networkDimension
 
 def checkInsidePlat(titikPlat, bboxDigit):
     x1, y1, x2, y2 = titikPlat
@@ -87,10 +79,9 @@ def prosesDigitPlat(digitPlatNom, keyakinanPlat):
     return outputDigit, hasilKeyakinan
 
 
-def parseLPR(detections):
+def parseLPR(detections, dimDarknet, dimAsli):
     digitsBuffer = detections
     platNomor = []
-    adaDigit = False
     for labelPlat, confidencePlat, bboxPlat in detections:
         if labelPlat == 'NOPOL':
             bufTitikPlat = bbox2points(bboxPlat)
@@ -103,10 +94,37 @@ def parseLPR(detections):
                         xDigit, yDigit, wDigit, hDigit = bboxDigit
                         bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
                         digitKe = digitKe + 1
-            if adaDigit >= 2:
+            if digitKe >= 2:
                 hasilDigit = prosesDigitPlat(bufferDigit, (float(confidencePlat)/100))
-                platNomor.append([bufTitikPlat + hasilDigit])
+                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimDarknet, dimAsli)
+                arrayPlat = koorPlatAseli + hasilDigit
+                platNomor.append(arrayPlat)
+    #print(platNomor)
     return platNomor
+
+def rubahRelatifKoor(titik, dimDarknet, dimAseli):
+    x1A, y1A, x2A, y2A = titik
+    widthDarknet, heightDarknet = dimDarknet
+    widthAseli, heightAseli = dimAseli
+    x1B = (x1A / widthDarknet) * widthAseli
+    x2B = (x2A / widthDarknet) * widthAseli
+    y1B = (y1A / heightDarknet) * heightAseli
+    y2B = (y2A / heightDarknet) * heightAseli
+    return x1B, y1B, x2B, y2B
+
+
+
+def drawPlat(dataPlatNom, gambar):
+    #print(dataPlatNom)
+    for listPlat in dataPlatNom:
+        x1, y1, x2, y2, nomor, yakin = listPlat
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1))), (int(round(x2)), int(round(y2))), (255, 0, 0), 1)
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1 - 20))), (int(round(x1 + 120)), int(round(y1))), (255, 0, 0), -1)
+        cv2.putText(gambar, "{} [{:.2f}]".format(nomor, float(yakin)),
+                    (int(round(x1 + 5)), int(round(y1)) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
+                    (255, 255, 255), 1)
+    return gambar
+
 
 def bbox2points(bbox):
     """
@@ -158,7 +176,7 @@ def main():
         dim = (widthA, heightA)
         #prev_time = time.time()
         
-        image, detections = image_detection(
+        image, detections, networkDimension = image_detection(
             frame, network, class_names, class_colors, threshDet
             )
         #if args.save_labels:
@@ -168,13 +186,15 @@ def main():
         #fps = int(vid.get(cv2.CAP_PROP_FPS))
         #fps = int(1/(time.time() - prev_time))
         #print("FPS: {}".format(fps))
-        parseLPR(detections)
-        resized = cv2.resize(image, dim, interpolation = cv2.INTER_AREA)
+        nomorPlat = parseLPR(detections, networkDimension, dim)
+        gambarA = drawPlat(nomorPlat, frame)
+        #resized = cv2.resize(gambarA, dim, interpolation = cv2.INTER_AREA)
         
-        cv2.imshow('Inference', resized)
+        cv2.imshow('Inference', gambarA)
         if cv2.waitKey() & 0xFF == ord('q'):
             break
         index += 1
+        break
 
 
 if __name__ == "__main__":
