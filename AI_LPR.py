@@ -1,20 +1,15 @@
-import os
-import glob
 import random
 import darknet
 import time
 import cv2
-import numpy as np
 import darknet
-from PIL import Image
 
 weightFile = 'platnomor.weights'
 labelsFile = 'platnomor.labels'
 configFile = 'platnomor.cfg'
 threshDet = 0.35
 
-
-def image_detection(image_path, network, class_names, class_colors, thresh):
+def image_detection(image_path, network, class_names, thresh):
     width = darknet.network_width(network)
     height = darknet.network_height(network)
     networkDimension = [width, height]
@@ -28,9 +23,7 @@ def image_detection(image_path, network, class_names, class_colors, thresh):
     darknet.copy_image_from_bytes(darknet_image, image_resized.tobytes())
     detections = darknet.detect_image(network, class_names, darknet_image, thresh=thresh)
     darknet.free_image(darknet_image)
-    #image = darknet.draw_boxes(detections, image_resized, class_colors)
-    image = image_resized
-    return cv2.cvtColor(image, cv2.COLOR_BGR2RGB), detections, networkDimension
+    return detections, networkDimension
 
 def checkInsidePlat(titikPlat, bboxDigit):
     x1, y1, x2, y2 = titikPlat
@@ -88,11 +81,11 @@ def rubahRelatifKoor(titik, dimDarknet, dimAseli):
     return x1B, y1B, x2B, y2B
 
 
-def drawPlat(dataPlatNom, gambar):
+def drawPlat(dataPlatNom, gambar, warnaPlat):
     for listPlat in dataPlatNom:
         x1, y1, x2, y2, nomor, yakin = listPlat
-        cv2.rectangle(gambar, (int(round(x1)), int(round(y1))), (int(round(x2)), int(round(y2))), (255, 0, 0), 1)
-        cv2.rectangle(gambar, (int(round(x1)), int(round(y1 - 20))), (int(round(x1 + 120)), int(round(y1))), (255, 0, 0), -1)
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1))), (int(round(x2)), int(round(y2))), warnaPlat, 1)
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1 - 20))), (int(round(x1 + 120)), int(round(y1))), warnaPlat, -1)
         cv2.putText(gambar, "{} [{:.2f}]".format(nomor, float(yakin)),
                     (int(round(x1 + 5)), int(round(y1)) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
                     (255, 255, 255), 1)
@@ -105,6 +98,9 @@ def bbox2points(bbox):
     ymin = y - (h / 2)
     ymax = y + (h / 2)
     return xmin, ymin, xmax, ymax
+
+def prosesGambar():
+    print('yoman')
 
 def main():
     random.seed(3)
@@ -122,14 +118,12 @@ def main():
         dim = (widthA, heightA)
         prev_time = time.time()
         
-        image, detections, networkDimension = image_detection(
-            frame, network, class_names, class_colors, threshDet
-            )
+        detections, networkDimension = image_detection(frame, network, class_names, threshDet)
 
         nomorPlat = parseLPR(detections, networkDimension, dim)
-        gambarA = drawPlat(nomorPlat, frame)
-        latencyAi = (time.time() - prev_time)
-        print('Latensi : ' + str(latencyAi))
+        gambarA = drawPlat(nomorPlat, frame, class_colors["NOPOL"])
+        latencyAi = (time.time() - prev_time) * 1000
+        print('Latensi (ms) : ' + str(latencyAi))
         cv2.imshow('Inference', gambarA)
         if cv2.waitKey() & 0xFF == ord('q'):
             break
