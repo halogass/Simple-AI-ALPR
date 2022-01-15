@@ -1,8 +1,9 @@
 from setuptools import setup
 from Cython.Build import cythonize
 
+files = ["arsai.pyx", "arsalpr.pyx"]
+
 setup(
-    name='darknet',
-    ext_modules=cythonize("darknet.pyx"),
+    ext_modules=cythonize(files),
     zip_safe=False,
 )

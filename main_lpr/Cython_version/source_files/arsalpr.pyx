@@ -1,28 +1,41 @@
+#!/usr/bin/env python3
+
 import random
-import darknet
+import arsai
 import time
 import cv2
-import darknet
 
-weightFile = 'platnomor.weights'
-labelsFile = 'platnomor.labels'
-configFile = 'platnomor.cfg'
+#imgPathList = ['platnomor.jpg', 'platnomor1.png', 'platnomor2.png', 'platnomor3.png']
+weightFile = 'lpr.weights'
+labelsFile = 'lpr.labels'
+configFile = 'lpr.cfg'
 threshDet = 0.3
 
+platColor = (255, 0, 100)
+
+modeNet = 1
+
+network, class_names = arsai.load_network(
+    configFile,
+    labelsFile,
+    weightFile,
+    batch_size=1
+    )
+
 def image_detection(image_path, network, class_names, thresh):
-    width = darknet.network_width(network)
-    height = darknet.network_height(network)
+    width = arsai.network_width(network)
+    height = arsai.network_height(network)
     networkDimension = [width, height]
-    darknet_image = darknet.make_image(width, height, 3)
+    arsai_image = arsai.make_image(width, height, 3)
 
     image = image_path
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image_resized = cv2.resize(image_rgb, (width, height),
                                interpolation=cv2.INTER_LINEAR)
 
-    darknet.copy_image_from_bytes(darknet_image, image_resized.tobytes())
-    detections = darknet.detect_image(network, class_names, darknet_image, thresh=thresh)
-    darknet.free_image(darknet_image)
+    arsai.copy_image_from_bytes(arsai_image, image_resized.tobytes())
+    detections = arsai.detect_image(network, class_names, arsai_image, thresh=thresh)
+    arsai.free_image(arsai_image)
     return detections, networkDimension
 
 def checkInsidePlat(titikPlat, bboxDigit):
@@ -44,12 +57,12 @@ def prosesDigitPlat(digitPlatNom, keyakinanPlat):
         totalKeyakinan = totalKeyakinan + keyakinan
         loopKe = loopKe + 1
     totalKeyakinan = totalKeyakinan / loopKe
-    hasilKeyakinan = (keyakinanPlat + totalKeyakinan) / 2
+    hasilKeyakinan = totalKeyakinan
     outputDigit = "".join(bufferDigit)
     return outputDigit, hasilKeyakinan
 
 
-def parseLPR(detections, dimDarknet, dimAsli):
+def parseLPR(detections, dimArsai, dimAsli):
     digitsBuffer = detections
     platNomor = []
     for labelPlat, confidencePlat, bboxPlat in detections:
@@ -65,19 +78,19 @@ def parseLPR(detections, dimDarknet, dimAsli):
                         digitKe = digitKe + 1
             if digitKe >= 2:
                 hasilDigit = prosesDigitPlat(bufferDigit, (float(confidencePlat)/100))
-                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimDarknet, dimAsli)
+                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
                 arrayPlat = koorPlatAseli + hasilDigit
                 platNomor.append(arrayPlat)
     return platNomor
 
-def rubahRelatifKoor(titik, dimDarknet, dimAseli):
+def rubahRelatifKoor(titik, dimArsai, dimAseli):
     x1A, y1A, x2A, y2A = titik
-    widthDarknet, heightDarknet = dimDarknet
+    widthArsai, heightArsai = dimArsai
     widthAseli, heightAseli = dimAseli
-    x1B = (x1A / widthDarknet) * widthAseli
-    x2B = (x2A / widthDarknet) * widthAseli
-    y1B = (y1A / heightDarknet) * heightAseli
-    y2B = (y2A / heightDarknet) * heightAseli
+    x1B = (x1A / widthArsai) * widthAseli
+    x2B = (x2A / widthArsai) * widthAseli
+    y1B = (y1A / heightArsai) * heightAseli
+    y2B = (y2A / heightArsai) * heightAseli
     return x1B, y1B, x2B, y2B
 
 
@@ -105,33 +118,28 @@ def prosesGambar(frame, network, class_names, class_colors, threshDet):
     dimFrame = (widthFrame, heightFrame)
     detections, networkDimension = image_detection(frame, network, class_names, threshDet)
     nomorPlat = parseLPR(detections, networkDimension, dimFrame)
-    gambarA = drawPlat(nomorPlat, frame, class_colors["NOPOL"])
+    gambarA = drawPlat(nomorPlat, frame, platColor)
     latencyAi = (time.time() - prev_time) * 1000
     return gambarA, nomorPlat, latencyAi
 
+def showHasil(imgHasil):
+    cv2.imshow('Inference', imgHasil)
+    cv2.waitKey() & 0xFF == ord('q')
 
-def proses():
+def tesProses(inputIm):
     random.seed(3)
-    network, class_names, class_colors = darknet.load_network(
-        configFile,
-        labelsFile,
-        weightFile,
-        batch_size=1
-    )
+    processedImg, platNomor, latensi = prosesGambar(inputIm, network, class_names, platColor, threshDet)
 
-    frame = cv2.imread('platnomor.jpg')
+    print('Latensi (ms) : ' + str(latensi))
+    platnomdetek = []
+    for items in platNomor:
+        platnomdetek.append(items[4])
+    print('Platnomor : ' + str(platnomdetek))
+    #showHasil(processedImg)
 
-    while True:
-        processedImg, platNomor, latensi = prosesGambar(frame, network, class_names, class_colors, threshDet)
-
-        print('Latensi (ms) : ' + str(latensi))
-        platnomdetek = []
-        for items in platNomor:
-            platnomdetek.append(items[4])
-        print('Platnomor : ' + str(platnomdetek))
-
-        cv2.imshow('Inference', processedImg)
-        if cv2.waitKey() & 0xFF == ord('q'):
-            break
-        break
-
+"""
+if __name__ == "__main__":
+    for imgPath in imgPathList:
+        gambarIn = cv2.imread(imgPath)
+        tesProses(gambarIn)
+"""

@@ -13,6 +13,7 @@ import math
 import random
 import os
 
+modeNet = 0 # 0 is CPU, 1 is GPU (NVIDIA Only)
 
 class BOX(Structure):
     _fields_ = [("x", c_float),
@@ -73,58 +74,27 @@ def bbox2points(bbox):
     ymax = int(round(y + (h / 2)))
     return xmin, ymin, xmax, ymax
 
-
+"""
 def class_colors(names):
-    """
-    Create a dict with one random BGR color for each
-    class name
-    """
+    
+    # Create a dict with one random BGR color for each
+    # class name
+    
     return {name: (
         random.randint(0, 255),
         random.randint(0, 255),
         random.randint(0, 255)) for name in names}
 
+"""
 
 def load_network(config_file, data_file, weights, batch_size=1):
-    """
-    load model description and weights from config files
-    args:
-        config_file (str): path to .cfg model file
-        data_file (str): path to .data model file
-        weights (str): path to weights
-    returns:
-        network: trained model
-        class_names
-        class_colors
-    """
     network = load_net_custom(
         config_file.encode("ascii"),
         weights.encode("ascii"), 0, batch_size)
     #metadata = load_meta(data_file.encode("ascii"))
     class_names = open(data_file).read().splitlines()
-    colors = class_colors(class_names)
-    return network, class_names, colors
-
-
-def print_detections(detections, coordinates=False):
-    print("\nObjects:")
-    for label, confidence, bbox in detections:
-        x, y, w, h = bbox
-        if coordinates:
-            print("{}: {}%    (left_x: {:.0f}   top_y:  {:.0f}   width:   {:.0f}   height:  {:.0f})".format(label, confidence, x, y, w, h))
-        else:
-            print("{}: {}%".format(label, confidence))
-
-
-def draw_boxes(detections, image, colors):
-    import cv2
-    for label, confidence, bbox in detections:
-        left, top, right, bottom = bbox2points(bbox)
-        cv2.rectangle(image, (left, top), (right, bottom), colors[label], 1)
-        cv2.putText(image, "{} [{:.2f}]".format(label, float(confidence)),
-                    (left, top - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                    colors[label], 2)
-    return image
+    #colors = class_colors(class_names)
+    return network, class_names
 
 
 def decode_detection(detections):
@@ -136,6 +106,7 @@ def decode_detection(detections):
 
 # https://www.pyimagesearch.com/2015/02/16/faster-non-maximum-suppression-python/
 # Malisiewicz et al.
+"""
 def non_max_suppression_fast(detections, overlap_thresh):
     boxes = []
     for detection in detections:
@@ -184,6 +155,7 @@ def non_max_suppression_fast(detections, overlap_thresh):
         # return only the bounding boxes that were picked using the
         # integer data type
     return [detections[i] for i in pick]
+"""
 
 def remove_negatives(detections, class_names, num):
     """
@@ -214,7 +186,7 @@ def remove_negatives_faster(detections, class_names, num):
     return predictions
 
 
-def detect_image(network, class_names, image, thresh=.5, hier_thresh=.5, nms=.45):
+def detect_image(network, class_names, image, thresh, hier_thresh=.5, nms=.45):
     """
         Returns a list with highest confidence class and their bbox
     """
@@ -230,10 +202,13 @@ def detect_image(network, class_names, image, thresh=.5, hier_thresh=.5, nms=.45
     free_detections(detections, num)
     return sorted(predictions, key=lambda x: x[1])
 
-
 if os.name == "posix":
     cwd = os.path.dirname(__file__)
-    lib = CDLL(cwd + "/libdarknet.so", RTLD_GLOBAL)
+    if modeNet == 0:
+        lib = CDLL(cwd + "/libdarknet-cpu.so", RTLD_GLOBAL)
+    elif modeNet == 1:
+        lib = CDLL(cwd + "/libdarknet-gpu.so", RTLD_GLOBAL)
+    #lib = CDLL(cwd + "/libdarknet.so", RTLD_GLOBAL)
 elif os.name == "nt":
     cwd = os.path.dirname(__file__)
     os.environ['PATH'] = cwd + ';' + os.environ['PATH']
