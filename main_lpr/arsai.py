@@ -13,7 +13,7 @@ import math
 import random
 import os
 
-modeNet = 0 # 0 is CPU, 1 is GPU (NVIDIA Only)
+modeNet = 1 # 0 is CPU, 1 is GPU (NVIDIA Only)
 
 class BOX(Structure):
     _fields_ = [("x", c_float),

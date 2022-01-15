@@ -11,8 +11,6 @@ threshDet = 0.3
 
 platColor = (255, 0, 100)
 
-modeNet = 1
-
 network, class_names = arsai.load_network(
     configFile,
     labelsFile,
@@ -110,7 +108,7 @@ def bbox2points(bbox):
     ymax = y + (h / 2)
     return xmin, ymin, xmax, ymax
 
-def prosesGambar(frame, network, class_names, class_colors, threshDet):
+def prosesGambar(frame, network, class_names, threshDet):
     prev_time = time.time()
     heightFrame, widthFrame, _ = frame.shape
     dimFrame = (widthFrame, heightFrame)
@@ -124,20 +122,21 @@ def showHasil(imgHasil):
     cv2.imshow('Inference', imgHasil)
     cv2.waitKey() & 0xFF == ord('q')
 
-def tesProses(inputIm):
-    random.seed(3)
-    processedImg, platNomor, latensi = prosesGambar(inputIm, network, class_names, platColor, threshDet)
-
-    print('Latensi (ms) : ' + str(latensi))
-    platnomdetek = []
-    for items in platNomor:
-        platnomdetek.append(items[4])
-    print('Platnomor : ' + str(platnomdetek))
+def mainProses(inputIm):
+    processedImg, platNomor, latensi = prosesGambar(inputIm, network, class_names, threshDet)
+    #print('Latensi (ms) : ' + str(latensi))
+    #platnomdetek = []
+    #for items in platNomor:
+    #    platnomdetek.append(items[4])
+    #print('Platnomor : ' + str(platnomdetek))
     #showHasil(processedImg)
+    return processedImg, platNomor, latensi
 
-
+"""
 if __name__ == "__main__":
     i = 0
     for imgPath in imgPathList:
         gambarIn = cv2.imread(imgPath)
         tesProses(gambarIn)
+"""
+
