@@ -2,27 +2,40 @@ import arsalpr as aiLpr
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
 from starlette.responses import RedirectResponse
-from pydantic import BaseModel
 import numpy as np
 import cv2
+import base64
 
+hostIpAddr = "127.0.0.1"
 
 app_desc = """<h2>Try this app by uploading any image to `lpr/image`</h2>
 by Hilmy Izzulhaq"""
 
-lpr = FastAPI(title='ARSA LPR API', description=app_desc)
+lpr = FastAPI(
+    title="ARSA LPR API",
+    description=app_desc,
+    version="0.0.1",
+    contact={
+        "name": "Hilmy Izzulhaq",
+        "email": "halogas.ijul@gmail.com",
+    },
+    license_info={
+        "name": "Apache 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
+    },
+)
 
 @lpr.get("/", include_in_schema=False)
 async def index():
     return RedirectResponse(url="/docs")
 
-@lpr.post("/lpr/image")
-async def predict_api(imOut : int, file: UploadFile = File(...)):
+@lpr.get("/v0/lpr", tags=["Input"])
+async def lpr_api(imOut : int, file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
         return "Image must be jpg or png format!"
     contents = await file.read()
-    nparr = np.fromstring(contents, np.uint8)
+    nparr = np.frombuffer(contents, np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
     processedImg, platNomor, latensi = aiLpr.mainProses(img)
@@ -31,21 +44,30 @@ async def predict_api(imOut : int, file: UploadFile = File(...)):
     jumlahNopol = 0
     for x1, y1, x2, y2, noPol, yakin in platNomor:
         jumlahNopol += 1
-        dictPlatNomorKey = "License_Plate_" + str(jumlahNopol)
+        dictPlatNomorKey = "license_plate_" + str(jumlahNopol)
         dictPlatNomor[dictPlatNomorKey] = {
-            'xmin': round(x1, 3), 
-            'ymin': round(y1, 3), 
-            'xmax': round(x2, 3), 
-            'ymax': round(y2, 3), 
-            'platnomor': noPol, 
-            'skor': round(yakin, 2)
+            'xmin':round(x1, 3), 
+            'ymin':round(y1, 3), 
+            'xmax':round(x2, 3), 
+            'ymax':round(y2, 3), 
+            'platnomor':noPol, 
+            'skor':round(yakin, 2)
         }
 
+    dictOutput = {
+        'processing_time(ms)':round(latensi, 3),
+        'result':dictPlatNomor,
+        'filename':file.filename
+    }
+
     if imOut == 0:
-        return dictPlatNomor
+        return dictOutput
     elif imOut == 1:
-        return dictPlatNomor
+        _, encoded_img = cv2.imencode('.PNG', processedImg)
+        encoded_imgOut = base64.b64encode(encoded_img)
+        dictOutput['result_img'] = encoded_imgOut
+        return dictOutput
 
 
 if __name__ == "__main__":
-    uvicorn.run(lpr, debug=True)
+    uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402)
