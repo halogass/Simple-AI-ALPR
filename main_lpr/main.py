@@ -29,7 +29,7 @@ lpr = FastAPI(
 async def index():
     return RedirectResponse(url="/docs")
 
-@lpr.get("/v0/lpr", tags=["Input"])
+@lpr.post("/v0/lpr", tags=["Input"])
 async def lpr_api(imOut : int, file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
