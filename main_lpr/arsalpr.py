@@ -192,7 +192,7 @@ def mainProses(inputIm):
     #for items in platNomor:
     #    platnomdetek.append(items[4])
     #print('Platnomor : ' + str(platnomdetek))
-    showHasil(processedImg)
+    #showHasil(processedImg)
     return processedImg, platNomor, latensi
 
 """
