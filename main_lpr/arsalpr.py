@@ -195,11 +195,11 @@ def mainProses(inputIm):
     showHasil(processedImg)
     return processedImg, platNomor, latensi
 
-
+"""
 if __name__ == "__main__":
     i = 0
     for imgPath in imgPathList:
         gambarIn = cv2.imread(imgPath)
         mainProses(gambarIn)
-
+"""
 
