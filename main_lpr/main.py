@@ -30,7 +30,7 @@ async def index():
     return RedirectResponse(url="/docs")
 
 @lpr.post("/v0/lpr", tags=["Input"])
-async def lpr_api(imOut : int, file: UploadFile = File(...)):
+async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
         return "Image must be jpg or png format!"
@@ -39,6 +39,16 @@ async def lpr_api(imOut : int, file: UploadFile = File(...)):
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
     processedImg, platNomor, latensi = aiLpr.mainProses(img)
+
+    tipeOcr = ''
+    if typeOcr == 0:
+        tipeOcr = 'license_plate'
+    elif typeOcr == 1:
+        tipeOcr = 'vin'
+    elif typeOcr == 2:
+        tipeOcr = 'engine_number'
+    else:
+        tipeOcr = 'ocr_type_not_recognized'
 
     dictPlatNomor = {}
     jumlahNopol = 0
@@ -58,6 +68,7 @@ async def lpr_api(imOut : int, file: UploadFile = File(...)):
 
     dictOutput = {
         'status':statusBaca,
+        'ocr_type':tipeOcr,
         'processing_time(ms)':round(latensi, 3),
         'result':dictPlatNomor,
         'filename':file.filename
