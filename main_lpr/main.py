@@ -42,19 +42,22 @@ async def lpr_api(imOut : int, file: UploadFile = File(...)):
 
     dictPlatNomor = {}
     jumlahNopol = 0
+    statusBaca = 'failed'
     for x1, y1, x2, y2, noPol, yakin in platNomor:
         jumlahNopol += 1
-        dictPlatNomorKey = "license_plate_" + str(jumlahNopol)
+        statusBaca = 'success'
+        dictPlatNomorKey = str(jumlahNopol)
         dictPlatNomor[dictPlatNomorKey] = {
             'xmin':round(x1, 3), 
             'ymin':round(y1, 3), 
             'xmax':round(x2, 3), 
             'ymax':round(y2, 3), 
-            'platnomor':noPol, 
+            'license_plate':noPol, 
             'skor':round(yakin, 2)
         }
 
     dictOutput = {
+        'status':statusBaca,
         'processing_time(ms)':round(latensi, 3),
         'result':dictPlatNomor,
         'filename':file.filename
