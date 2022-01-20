@@ -1,41 +1,34 @@
-import random
-import arsai
-import time
 import cv2
 import numpy as np
+import time
 
-imgPathList = ['platnomor.jpg', 'platnomor1.png', 'platnomor2.png', 'platnomor3.png']
-weightFile = 'platnomor.weights'
-labelsFile = 'platnomor.labels'
-configFile = 'platnomor.cfg'
-threshDet = 0.3
+MODEL_WEIGHTS = "yolov4-tiny.weights"
+MODEL_CONFIG = "yolov4-tiny.cfg"
+CLASS_LABELS = "classes.labels"
 
-platColor = (255, 0, 100)
+CONFIDENCE_THRESHOLD = 0.3
+NMS_THRESHOLD = 0.4
+COLOR = (0, 255, 255)
+NETWORK_DIMENSION = (416, 416)
 
-bgMask = cv2.imread('blackBg.jpg')
+class_names = open(CLASS_LABELS).read().splitlines()
 
-network, class_names = arsai.load_network(
-    configFile,
-    labelsFile,
-    weightFile,
-    batch_size=1
-    )
+vc = cv2.VideoCapture("/home/arsa/Videos/traffic.mp4")
 
-def image_detection(image_path, network, class_names, thresh):
-    width = arsai.network_width(network)
-    height = arsai.network_height(network)
-    networkDimension = [width, height]
-    arsai_image = arsai.make_image(width, height, 3)
+net = cv2.dnn.readNetFromDarknet(MODEL_CONFIG, MODEL_WEIGHTS)
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
-    image = image_path
-    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image_resized = cv2.resize(image_rgb, (width, height),
-                               interpolation=cv2.INTER_LINEAR)
+model = cv2.dnn_DetectionModel(net)
+model.setInputParams(size=(416, 416), scale=1/255, swapRB=True)
 
-    arsai.copy_image_from_bytes(arsai_image, image_resized.tobytes())
-    detections = arsai.detect_image(network, class_names, arsai_image, thresh=thresh)
-    arsai.free_image(arsai_image)
-    return detections, networkDimension
+def detectionEngine(imageIn):
+    classes, scores, boxes = model.detect(imageIn, CONFIDENCE_THRESHOLD, NMS_THRESHOLD)
+    detections = []
+    for (classid, score, box) in zip(classes, scores, boxes):
+        label = class_names[int(classid)]
+        detections.append([label, box, score])
+    return detections
 
 def checkInsidePlat(titikPlat, bboxDigit):
     x1, y1, x2, y2 = titikPlat
@@ -46,7 +39,7 @@ def checkInsidePlat(titikPlat, bboxDigit):
     else:
         return False
 
-def prosesDigitPlat(digitPlatNom):
+def prosesSortDigitPlat(digitPlatNom):
     sortedList = sorted(digitPlatNom, key=lambda x: x[1], reverse=False)
     bufferDigit = []
     totalKeyakinan = 0
@@ -60,146 +53,35 @@ def prosesDigitPlat(digitPlatNom):
     outputDigit = "".join(bufferDigit)
     return outputDigit, hasilKeyakinan
 
-
-def parseLPR(detections, dimArsai, dimAsli):
-    digitsBuffer = detections
-    platNomor = []
-    for labelPlat, confidencePlat, bboxPlat in detections:
-        if labelPlat == 'NOPOL':
-            bufTitikPlat = bbox2points(bboxPlat)
-            digitKe = 1
-            bufferDigit = []
-            for labelDigit, confidenceDigit, bboxDigit in digitsBuffer:
-                if (labelDigit != "NOPOL"):
-                    if (checkInsidePlat(bufTitikPlat, bboxDigit)):
-                        xDigit, yDigit, wDigit, hDigit = bboxDigit
-                        bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
-                        digitKe = digitKe + 1
-            if digitKe >= 2:
-                hasilDigit = prosesDigitPlat(bufferDigit)
-                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
-                arrayPlat = koorPlatAseli + hasilDigit
-                platNomor.append(arrayPlat)
-    return platNomor
-
-def prosesCrop(frame, kosong, bboxCrop):
-    width, height, _ = frame.shape
-    #print(width, height)
-    #print(bboxCrop)
+def prosesCrop(frame, bboxCrop):
     x1, y1, x2, y2 = bboxCrop
     rx1, ry1, rx2, ry2 = int(round(x1)), int(round(y1)), int(round(x2)), int(round(y2))
-    #print(rx1, ry1, rx2, ry2)
     imgCroped = frame[ry1:ry2, rx1:rx2]
-    #showHasil(imgCroped)
-    resizedCrop = cv2.resize(imgCroped, (608, 180))
-    kosong[200:380, 0:608] = resizedCrop
-    #showHasil(kosong)
-    return kosong
 
-def engineLpr(detections, dimArsai, frame):
-    heightFrame, widthFrame, _ = frame.shape
-    dimAsli = (widthFrame, heightFrame)
-    platNomor = []
-    print('Sedang proses engineLpr')
-    for labelPlat, confidencePlat, bboxPlat in detections:
-        if labelPlat == 'NOPOL':
-            bufTitikPlat = bbox2points(bboxPlat)
-            widthArsai, heightArsai = dimArsai
-            koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
-            print('koordinat plat : ' + str(koorPlatAseli))
-            platCroped = prosesCrop(frame, bgMask, koorPlatAseli)
-            detectionsDigit, _ = image_detection(platCroped, network, class_names, threshDet)
-            #print('hasil deteksi digit :')
-            #print(detectionsDigit)
-            digitKe = 1
-            bufferDigit = []
-            for labelDigit, confidenceDigit, bboxDigit in detectionsDigit:
-                if (labelDigit != "NOPOL"):
-                    #print('level yakin ' + confidenceDigit)
-                    if float(confidenceDigit) >= 40:
-                        #print('huruf ' + labelDigit)
-                        xDigit, yDigit, wDigit, hDigit = bboxDigit
-                        bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
-                        digitKe = digitKe + 1
-            if digitKe >= 2:
-                hasilDigit = prosesDigitPlat(bufferDigit)
-                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
-                arrayPlat = koorPlatAseli + hasilDigit
-                platNomor.append(arrayPlat)
-    return platNomor
+    imgBg = np.zeros((1000,1000,3), dtype=np.uint8)
+    resizedDimPlat = (1000, 300)
 
+    resizedImPlat = cv2.resize(imgCroped, resizedDimPlat)
+    imgBg[333:633, 0:1000] = resizedImPlat
+    
+    return imgBg
 
-def rubahRelatifKoor(titik, dimArsai, dimAseli):
-    x1A, y1A, x2A, y2A = titik
-    widthArsai, heightArsai = dimArsai
-    widthAseli, heightAseli = dimAseli
-    x1B = (x1A / widthArsai) * widthAseli
-    x2B = (x2A / widthArsai) * widthAseli
-    y1B = (y1A / heightArsai) * heightAseli
-    y2B = (y2A / heightArsai) * heightAseli
-    return x1B, y1B, x2B, y2B
+while cv2.waitKey(1) < 1:
+    (grabbed, frame) = vc.read()
+    if not grabbed:
+        exit()
 
+    start = time.time()
+    detections = detectionEngine(frame)
+    end = time.time()
 
-def drawPlat(dataPlatNom, gambar, warnaPlat):
-    for listPlat in dataPlatNom:
-        x1, y1, x2, y2, nomor, yakin = listPlat
-        cv2.rectangle(gambar, (int(round(x1)), int(round(y1))), (int(round(x2)), int(round(y2))), warnaPlat, 1)
-        cv2.rectangle(gambar, (int(round(x1)), int(round(y1 - 20))), (int(round(x1 + 120)), int(round(y1))), warnaPlat, -1)
-        cv2.putText(gambar, "{} [{:.2f}]".format(nomor, float(yakin)),
-                    (int(round(x1 + 5)), int(round(y1)) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
-                    (255, 255, 255), 1)
-    return gambar
-
-def bbox2points(bbox):
-    x, y, w, h = bbox
-    xmin = x - (w / 2)
-    xmax = x + (w / 2)
-    ymin = y - (h / 2)
-    ymax = y + (h / 2)
-    return xmin, ymin, xmax, ymax
-
-def prosesGambar(frame, network, class_names, threshDet):
-    prev_time = time.time()
-    heightFrame, widthFrame, _ = frame.shape
-    dimFrame = (widthFrame, heightFrame)
-    detections, networkDimension = image_detection(frame, network, class_names, threshDet)
-    nomorPlat = parseLPR(detections, networkDimension, dimFrame)
-    gambarA = drawPlat(nomorPlat, frame, platColor)
-    latencyAi = (time.time() - prev_time) * 1000
-    return gambarA, nomorPlat, latencyAi
-
-def prosesGambarAlt(frame, network, class_names, threshDet):
-    prev_time = time.time()
-
-    heightFrame, widthFrame, _ = frame.shape
-    dimFrame = (widthFrame, heightFrame)
-
-    detections, networkDimension = image_detection(frame, network, class_names, threshDet)
-
-    nomorPlat = engineLpr(detections, networkDimension, frame)
-    gambarA = drawPlat(nomorPlat, frame, platColor)
-    latencyAi = (time.time() - prev_time) * 1000
-    return gambarA, nomorPlat, latencyAi
-
-def showHasil(imgHasil):
-    cv2.imshow('Inference', imgHasil)
-    cv2.waitKey() & 0xFF == ord('q')
-
-def mainProses(inputIm):
-    processedImg, platNomor, latensi = prosesGambarAlt(inputIm, network, class_names, threshDet)
-    print('Latensi (ms) : ' + str(latensi))
-    #platnomdetek = []
-    #for items in platNomor:
-    #    platnomdetek.append(items[4])
-    #print('Platnomor : ' + str(platnomdetek))
-    #showHasil(processedImg)
-    return processedImg, platNomor, latensi
-
-"""
-if __name__ == "__main__":
-    i = 0
-    for imgPath in imgPathList:
-        gambarIn = cv2.imread(imgPath)
-        mainProses(gambarIn)
-"""
-
+    start_drawing = time.time()
+    for classlabel, box, score in detections:
+        color = COLOR
+        cv2.rectangle(frame, box, color, 2)
+        cv2.putText(frame, "{}".format(classlabel), (box[0], box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+    end_drawing = time.time()
+    
+    fps_label = "FPS: %.2f (excluding drawing time of %.2fms)" % (1 / (end - start), (end_drawing - start_drawing) * 1000)
+    cv2.putText(frame, fps_label, (0, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+    cv2.imshow("detections", frame)

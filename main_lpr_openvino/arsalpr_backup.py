@@ -1,0 +1,204 @@
+import arsai
+import time
+import cv2
+import numpy as np
+
+imgPathList = ['platnomor.jpg', 'platnomor1.png', 'platnomor2.png', 'platnomor3.png']
+weightFile = 'platnomor.weights'
+labelsFile = 'platnomor.labels'
+configFile = 'platnomor.cfg'
+threshDet = 0.3
+
+platColor = (255, 0, 100)
+
+bgMask = cv2.imread('blackBg.jpg')
+
+network, class_names = arsai.load_network(
+    configFile,
+    labelsFile,
+    weightFile,
+    batch_size=1
+    )
+
+def image_detection(image_path, network, class_names, thresh):
+    width = arsai.network_width(network)
+    height = arsai.network_height(network)
+    networkDimension = [width, height]
+    arsai_image = arsai.make_image(width, height, 3)
+
+    image = image_path
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image_resized = cv2.resize(image_rgb, (width, height),
+                               interpolation=cv2.INTER_LINEAR)
+
+    arsai.copy_image_from_bytes(arsai_image, image_resized.tobytes())
+    detections = arsai.detect_image(network, class_names, arsai_image, thresh=thresh)
+    arsai.free_image(arsai_image)
+    return detections, networkDimension
+
+def checkInsidePlat(titikPlat, bboxDigit):
+    x1, y1, x2, y2 = titikPlat
+    x, y, w, h = bboxDigit
+    if (x1 <= x and x <= x2):
+        if (y1 <= y and y <= y2):
+            return True
+    else:
+        return False
+
+def prosesDigitPlat(digitPlatNom):
+    sortedList = sorted(digitPlatNom, key=lambda x: x[1], reverse=False)
+    bufferDigit = []
+    totalKeyakinan = 0
+    loopKe = 0
+    for digit, titik, keyakinan in sortedList:
+        bufferDigit.append(digit)
+        totalKeyakinan = totalKeyakinan + keyakinan
+        loopKe = loopKe + 1
+    totalKeyakinan = totalKeyakinan / loopKe
+    hasilKeyakinan = totalKeyakinan
+    outputDigit = "".join(bufferDigit)
+    return outputDigit, hasilKeyakinan
+
+
+def parseLPR(detections, dimArsai, dimAsli):
+    digitsBuffer = detections
+    platNomor = []
+    for labelPlat, confidencePlat, bboxPlat in detections:
+        if labelPlat == 'NOPOL':
+            bufTitikPlat = bbox2points(bboxPlat)
+            digitKe = 1
+            bufferDigit = []
+            for labelDigit, confidenceDigit, bboxDigit in digitsBuffer:
+                if (labelDigit != "NOPOL"):
+                    if (checkInsidePlat(bufTitikPlat, bboxDigit)):
+                        xDigit, yDigit, wDigit, hDigit = bboxDigit
+                        bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
+                        digitKe = digitKe + 1
+            if digitKe >= 2:
+                hasilDigit = prosesDigitPlat(bufferDigit)
+                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
+                arrayPlat = koorPlatAseli + hasilDigit
+                platNomor.append(arrayPlat)
+    return platNomor
+
+def prosesCrop(frame, kosong, bboxCrop):
+    width, height, _ = frame.shape
+    #print(width, height)
+    #print(bboxCrop)
+    x1, y1, x2, y2 = bboxCrop
+    rx1, ry1, rx2, ry2 = int(round(x1)), int(round(y1)), int(round(x2)), int(round(y2))
+    #print(rx1, ry1, rx2, ry2)
+    imgCroped = frame[ry1:ry2, rx1:rx2]
+    #showHasil(imgCroped)
+    resizedCrop = cv2.resize(imgCroped, (608, 180))
+    kosong[200:380, 0:608] = resizedCrop
+    #showHasil(kosong)
+    return kosong
+
+def engineLpr(detections, dimArsai, frame):
+    heightFrame, widthFrame, _ = frame.shape
+    dimAsli = (widthFrame, heightFrame)
+    platNomor = []
+    print('Sedang proses engineLpr')
+    for labelPlat, confidencePlat, bboxPlat in detections:
+        if labelPlat == 'NOPOL':
+            bufTitikPlat = bbox2points(bboxPlat)
+            widthArsai, heightArsai = dimArsai
+            koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
+            print('koordinat plat : ' + str(koorPlatAseli))
+            platCroped = prosesCrop(frame, bgMask, koorPlatAseli)
+            detectionsDigit, _ = image_detection(platCroped, network, class_names, threshDet)
+            #print('hasil deteksi digit :')
+            #print(detectionsDigit)
+            digitKe = 1
+            bufferDigit = []
+            for labelDigit, confidenceDigit, bboxDigit in detectionsDigit:
+                if (labelDigit != "NOPOL"):
+                    #print('level yakin ' + confidenceDigit)
+                    if float(confidenceDigit) >= 40:
+                        #print('huruf ' + labelDigit)
+                        xDigit, yDigit, wDigit, hDigit = bboxDigit
+                        bufferDigit.append([labelDigit, xDigit, (float(confidenceDigit)/100)])
+                        digitKe = digitKe + 1
+            if digitKe >= 2:
+                hasilDigit = prosesDigitPlat(bufferDigit)
+                koorPlatAseli = rubahRelatifKoor(bufTitikPlat, dimArsai, dimAsli)
+                arrayPlat = koorPlatAseli + hasilDigit
+                platNomor.append(arrayPlat)
+    return platNomor
+
+
+def rubahRelatifKoor(titik, dimArsai, dimAseli):
+    x1A, y1A, x2A, y2A = titik
+    widthArsai, heightArsai = dimArsai
+    widthAseli, heightAseli = dimAseli
+    x1B = (x1A / widthArsai) * widthAseli
+    x2B = (x2A / widthArsai) * widthAseli
+    y1B = (y1A / heightArsai) * heightAseli
+    y2B = (y2A / heightArsai) * heightAseli
+    return x1B, y1B, x2B, y2B
+
+
+def drawPlat(dataPlatNom, gambar, warnaPlat):
+    for listPlat in dataPlatNom:
+        x1, y1, x2, y2, nomor, yakin = listPlat
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1))), (int(round(x2)), int(round(y2))), warnaPlat, 1)
+        cv2.rectangle(gambar, (int(round(x1)), int(round(y1 - 20))), (int(round(x1 + 120)), int(round(y1))), warnaPlat, -1)
+        cv2.putText(gambar, "{} [{:.2f}]".format(nomor, float(yakin)),
+                    (int(round(x1 + 5)), int(round(y1)) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
+                    (255, 255, 255), 1)
+    return gambar
+
+def bbox2points(bbox):
+    x, y, w, h = bbox
+    xmin = x - (w / 2)
+    xmax = x + (w / 2)
+    ymin = y - (h / 2)
+    ymax = y + (h / 2)
+    return xmin, ymin, xmax, ymax
+
+def prosesGambar(frame, network, class_names, threshDet):
+    prev_time = time.time()
+    heightFrame, widthFrame, _ = frame.shape
+    dimFrame = (widthFrame, heightFrame)
+    detections, networkDimension = image_detection(frame, network, class_names, threshDet)
+    nomorPlat = parseLPR(detections, networkDimension, dimFrame)
+    gambarA = drawPlat(nomorPlat, frame, platColor)
+    latencyAi = (time.time() - prev_time) * 1000
+    return gambarA, nomorPlat, latencyAi
+
+def prosesGambarAlt(frame, network, class_names, threshDet):
+    prev_time = time.time()
+
+    heightFrame, widthFrame, _ = frame.shape
+    dimFrame = (widthFrame, heightFrame)
+
+    detections, networkDimension = image_detection(frame, network, class_names, threshDet)
+
+    nomorPlat = engineLpr(detections, networkDimension, frame)
+    gambarA = drawPlat(nomorPlat, frame, platColor)
+    latencyAi = (time.time() - prev_time) * 1000
+    return gambarA, nomorPlat, latencyAi
+
+def showHasil(imgHasil):
+    cv2.imshow('Inference', imgHasil)
+    cv2.waitKey() & 0xFF == ord('q')
+
+def mainProses(inputIm):
+    processedImg, platNomor, latensi = prosesGambarAlt(inputIm, network, class_names, threshDet)
+    print('Latensi (ms) : ' + str(latensi))
+    #platnomdetek = []
+    #for items in platNomor:
+    #    platnomdetek.append(items[4])
+    #print('Platnomor : ' + str(platnomdetek))
+    #showHasil(processedImg)
+    return processedImg, platNomor, latensi
+
+"""
+if __name__ == "__main__":
+    i = 0
+    for imgPath in imgPathList:
+        gambarIn = cv2.imread(imgPath)
+        mainProses(gambarIn)
+"""
+
