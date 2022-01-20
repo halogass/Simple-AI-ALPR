@@ -37,7 +37,8 @@ async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
     contents = await file.read()
     nparr = np.frombuffer(contents, np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-
+    
+    headers = {"AI-Developer": "ARSA-Technology"}
     processedImg, platNomor, latensi = aiLpr.mainProses(img)
 
     tipeOcr = ''
@@ -80,7 +81,7 @@ async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
         _, encoded_img = cv2.imencode('.PNG', processedImg)
         encoded_imgOut = base64.b64encode(encoded_img)
         dictOutput['result_img'] = encoded_imgOut
-        return dictOutput
+        return JSONResponse(content=dictOutput, headers=headers)
 
 
 if __name__ == "__main__":

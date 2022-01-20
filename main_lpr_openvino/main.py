@@ -1,18 +1,25 @@
 import arsalpr as aiLpr
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import JSONResponse
 from starlette.responses import RedirectResponse
 import numpy as np
 import cv2
+from pydantic import BaseModel
 import base64
+from typing import Optional
 
 hostIpAddr = "127.0.0.1"
 
 app_desc = """<h2>Try this app by uploading any image to `lpr/image`</h2>
+Set query imOut= 0 or 1<br>
+0 mean no result image, 1 mean with result image<br>
+result image is an output image with license plate bounding box and label already drawed<br>
+result_img is encoded in base64 (string)<br>
 by Hilmy Izzulhaq"""
 
 lpr = FastAPI(
-    title="ARSA LPR API",
+    title="ARSA LPR API DEMO",
     description=app_desc,
     version="0.0.1",
     contact={
@@ -30,7 +37,7 @@ async def index():
     return RedirectResponse(url="/docs")
 
 @lpr.post("/v0/lpr", tags=["Input"])
-async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
+async def lpr_api(imOut : int, file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
         return "Image must be jpg or png format!"
@@ -40,35 +47,28 @@ async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
 
     processedImg, platNomor, latensi = aiLpr.mainProses(img)
 
-    tipeOcr = ''
-    if typeOcr == 0:
-        tipeOcr = 'license_plate'
-    elif typeOcr == 1:
-        tipeOcr = 'vin'
-    elif typeOcr == 2:
-        tipeOcr = 'engine_number'
-    else:
-        tipeOcr = 'ocr_type_not_recognized'
+    tipeOcr = 'license_plate_recognition'
 
     dictPlatNomor = {}
     jumlahNopol = 0
     statusBaca = 'failed'
-    for x1, y1, x2, y2, noPol, yakin in platNomor:
+    for bbox, noPol, yakin in platNomor:
+        x1, y1, x2, y2 = bbox
         jumlahNopol += 1
         statusBaca = 'success'
         dictPlatNomorKey = str(jumlahNopol)
         dictPlatNomor[dictPlatNomorKey] = {
-            'xmin':round(x1, 3), 
-            'ymin':round(y1, 3), 
-            'xmax':round(x2, 3), 
-            'ymax':round(y2, 3), 
-            'license_plate':noPol, 
-            'skor':round(yakin, 2)
+            'xmin':round(float(x1)), 
+            'ymin':round(float(y1)), 
+            'xmax':round(float(x2)), 
+            'ymax':round(float(y2)), 
+            'license_plate':str(noPol), 
+            'skor':round(float(yakin), 2)
         }
 
     dictOutput = {
         'status':statusBaca,
-        'ocr_type':tipeOcr,
+        'ai_type':tipeOcr,
         'processing_time(ms)':round(latensi, 3),
         'result':dictPlatNomor,
         'filename':file.filename
@@ -84,4 +84,4 @@ async def lpr_api(imOut : int, typeOcr : int, file: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
-    uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402)
+    uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
