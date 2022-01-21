@@ -127,7 +127,7 @@ def mainProses(ImgPlatIn, supresMode):
 def testPict():
     imgIn = cv2.imread('../img_asset/platnomor3.png')
 
-    platnomorHasil, latensi, drawed_img = engineLprAi(imgIn, False)
+    platnomorHasil, latensi, drawed_img = engineLprAi(imgIn, True)
     print(platnomorHasil)
     print('Latensi : ' + str(latensi))
     showHasil(drawed_img)
@@ -145,4 +145,5 @@ def testVid():
         cv2.putText(drawImg, fps_label, (0, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("detections", drawImg)
 
-#testPict()
+
+testPict()

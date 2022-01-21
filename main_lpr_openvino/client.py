@@ -16,13 +16,13 @@ def showHasil(imgHasil):
 while intloopRequest <= 0:
     for fileItem in imPathCoba:
         files = {'file': open(fileItem, 'rb')}
-        response = requests.post('http://api.arsa.technology:5402/v0/lpr?imOut=0', files=files)
+        response = requests.post('http://api.arsa.technology:5402/v0/lpr?imOut=false', files=files)
         inputRes = response.json()
-        inputImgRaw = inputRes['result_img']
-        nparr = np.frombuffer(base64.b64decode(inputImgRaw), np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        plt.imshow(img)
-        plt.show()
+        #inputImgRaw = inputRes['result_img']
+        #nparr = np.frombuffer(base64.b64decode(inputImgRaw), np.uint8)
+        #img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        #plt.imshow(img)
+        #plt.show()
         pprint(inputRes)
     intloopRequest += 1
 
