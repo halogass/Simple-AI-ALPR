@@ -1,3 +1,4 @@
+from xmlrpc.client import Boolean
 import arsalpr as aiLpr
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
@@ -9,13 +10,15 @@ from pydantic import BaseModel
 import base64
 from typing import Optional
 
-hostIpAddr = "127.0.0.1"
+hostIpAddr = "101.50.3.207"
 
 app_desc = """<h2>Try this app by uploading any image to `lpr/image`</h2>
-Set query imOut= 0 or 1<br>
-0 mean no result image, 1 mean with result image<br>
+Set query imOut= true or false
+false mean no result image, true mean with result image<br>
 result image is an output image with license plate bounding box and label already drawed<br>
 result_img is encoded in base64 (string)<br>
+<br>
+you can also you super resolution algorith to detect far objects, but with slower processing time<br>
 by Hilmy Izzulhaq"""
 
 lpr = FastAPI(
@@ -37,7 +40,7 @@ async def index():
     return RedirectResponse(url="/docs")
 
 @lpr.post("/v0/lpr", tags=["Input"])
-async def lpr_api(imOut : int, file: UploadFile = File(...)):
+async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
         return "Image must be jpg or png format!"
@@ -45,7 +48,7 @@ async def lpr_api(imOut : int, file: UploadFile = File(...)):
     nparr = np.frombuffer(contents, np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-    processedImg, platNomor, latensi = aiLpr.mainProses(img)
+    processedImg, platNomor, latensi = aiLpr.mainProses(img, superRes)
 
     tipeOcr = 'license_plate_recognition'
 
@@ -74,9 +77,9 @@ async def lpr_api(imOut : int, file: UploadFile = File(...)):
         'filename':file.filename
     }
 
-    if imOut == 0:
+    if imOut == False:
         return dictOutput
-    elif imOut == 1:
+    elif imOut == True:
         _, encoded_img = cv2.imencode('.PNG', processedImg)
         encoded_imgOut = base64.b64encode(encoded_img)
         dictOutput['result_img'] = encoded_imgOut

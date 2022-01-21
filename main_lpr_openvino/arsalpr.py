@@ -4,16 +4,25 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-MODEL_WEIGHTS = 'platnomor-tiny.weights'
-MODEL_CONFIG = "platnomor-tiny.cfg"
+MODEL_WEIGHTS = 'models/platnomor-train_best.weights'
+MODEL_CONFIG = "models/platnomor-tiny.cfg"
 CLASS_LABELS = "platnomor.labels"
+
+SUPERRES_MODEL = "models/ESPCN_x4.pb"
 
 CONFIDENCE_THRESHOLD = 0.3
 NMS_THRESHOLD = 0.4
 COLOR = (255, 0, 0)
 NETWORK_DIMENSION = (416, 416)
 
-# First load the model then set the backend and target
+# load super resolution model then set the backend and target
+superres = cv2.dnn_superres.DnnSuperResImpl_create()
+superres.readModel(SUPERRES_MODEL)
+superres.setModel("espcn",4)
+superres.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
+superres.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
+
+# load object detection model then set the backend and target
 net = cv2.dnn.readNetFromDarknet(MODEL_CONFIG, MODEL_WEIGHTS)
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
@@ -70,11 +79,22 @@ def drawPlat(dataPlatNom, gambar, warnaPlat):
     return gambar
 
 def showHasil(imgHasil):
-    cv2.imshow('Inference', imgHasil)
-    cv2.waitKey() & 0xFF == ord('q')
+    show_rgb = cv2.cvtColor(imgHasil, cv2.COLOR_BGR2RGB)
+    plt.imshow(show_rgb)
+    plt.show()
+    #cv2.imshow('Inference', imgHasil)
+    #cv2.waitKey() & 0xFF == ord('q')
 
-def engineLprAi(image_In):
+def superresAlgorith(image_In):
+    result_img = superres.upsample(image_In)
+    return result_img
+
+def engineLprAi(buffImage_In, superres_mode):
     prev_time = time.time()
+    if superres_mode == True:
+        image_In = superresAlgorith(buffImage_In)
+    elif superres_mode == False:
+        image_In = buffImage_In
     lprPlatnomor = []
     detections = detectionEngine(image_In)
     for labelPlat, bboxRawPlat, confidencePlat in detections:
@@ -97,22 +117,20 @@ def engineLprAi(image_In):
                 digitTerurut, keyakinanDigit = prosesSortDigitPlat(bufferDigit)
                 lprPlatnomor.append([bboxPlat, digitTerurut, keyakinanDigit])
     latencyAi = (time.time() - prev_time) * 1000
-    return lprPlatnomor, latencyAi
+    drawed_img = drawPlat(lprPlatnomor, image_In, COLOR)
+    return lprPlatnomor, latencyAi, drawed_img
 
-def mainProses(ImgPlatIn):
-    platnomorHasil, latensi = engineLprAi(ImgPlatIn)
-    drawImg = drawPlat(platnomorHasil, ImgPlatIn, COLOR)
-    return drawImg, platnomorHasil, latensi
+def mainProses(ImgPlatIn, supresMode):
+    platnomorHasil, latensi, drawed_img = engineLprAi(ImgPlatIn, supresMode)
+    return drawed_img, platnomorHasil, latensi
 
 def testPict():
-    imgIn = cv2.imread('platnomor3.png')
+    imgIn = cv2.imread('../img_asset/platnomor3.png')
 
-    platnomorHasil, latensi = engineLprAi(imgIn)
+    platnomorHasil, latensi, drawed_img = engineLprAi(imgIn, False)
     print(platnomorHasil)
     print('Latensi : ' + str(latensi))
-
-    drawImg = drawPlat(platnomorHasil, imgIn, COLOR)
-    showHasil(drawImg)
+    showHasil(drawed_img)
 
 def testVid():
     videoIn = cv2.VideoCapture("/home/arsa/Videos/m3_edited.mp4")
@@ -121,9 +139,8 @@ def testVid():
         if not grabbed:
             exit()
         start = time.time()
-        platnomorHasil = engineLprAi(frameIn)
+        platnomorHasil, latensi, drawImg = engineLprAi(frameIn, False)
         end = time.time()
-        drawImg = drawPlat(platnomorHasil, frameIn, COLOR)
         fps_label = "FPS: %.2f" % (1 / (end - start))
         cv2.putText(drawImg, fps_label, (0, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("detections", drawImg)
