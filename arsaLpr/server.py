@@ -2,7 +2,6 @@ from xmlrpc.client import Boolean
 import arsalpr_cuda as aiLpr
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import JSONResponse
 from starlette.responses import RedirectResponse
 import numpy as np
 import cv2
@@ -85,4 +84,4 @@ async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(
 
 
 if __name__ == "__main__":
-    uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
+    uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-ai_server-1"), ("AI-Developer", "ARSA-Technology")])

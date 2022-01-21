@@ -1,9 +1,9 @@
 from setuptools import setup
 from Cython.Build import cythonize
 
-files = ["arsalpr.pyx", "serverAi.pyx"]
+files = ["arsalpr_cuda.pyx", "server.pyx"]
 
 setup(
-    ext_modules=cythonize(files),
+    ext_modules=cythonize("server.pyx"),
     zip_safe=False,
 )

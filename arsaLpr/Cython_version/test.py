@@ -1,3 +1,3 @@
-import main
+import server
 
-main.main()
+#server.main()

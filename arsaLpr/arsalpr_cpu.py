@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
 import time
-import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 MODEL_WEIGHTS = 'assets/platnomor-train_best.weights'
 MODEL_CONFIG = "assets/platnomor-tiny.cfg"
@@ -19,12 +18,12 @@ NETWORK_DIMENSION = (416, 416)
 superres = cv2.dnn_superres.DnnSuperResImpl_create()
 superres.readModel(SUPERRES_MODEL)
 superres.setModel("espcn",4)
-superres.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
+superres.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
 superres.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
 # load object detection model then set the backend and target
 net = cv2.dnn.readNetFromDarknet(MODEL_CONFIG, MODEL_WEIGHTS)
-net.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
 # Initiate detection model
@@ -78,12 +77,14 @@ def drawPlat(dataPlatNom, gambar, warnaPlat):
                     (255, 255, 255), 1)
     return gambar
 
+"""
 def showHasil(imgHasil):
     show_rgb = cv2.cvtColor(imgHasil, cv2.COLOR_BGR2RGB)
     plt.imshow(show_rgb)
     plt.show()
     #cv2.imshow('Inference', imgHasil)
     #cv2.waitKey() & 0xFF == ord('q')
+"""
 
 def superresAlgorith(image_In):
     result_img = superres.upsample(image_In)
@@ -124,8 +125,9 @@ def mainProses(ImgPlatIn, supresMode):
     platnomorHasil, latensi, drawed_img = engineLprAi(ImgPlatIn, supresMode)
     return drawed_img, platnomorHasil, latensi
 
+"""
 def testPict():
-    imgIn = cv2.imread('/home/arsa/Documents/AI/AI_ALPR/img_asset/platnomor3.png')
+    imgIn = cv2.imread('../img_asset/platnomor3.png')
 
     platnomorHasil, latensi, drawed_img = engineLprAi(imgIn, False)
     print(platnomorHasil)
@@ -145,5 +147,5 @@ def testVid():
         cv2.putText(drawImg, fps_label, (0, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("detections", drawImg)
 
-
+"""
 #testPict()

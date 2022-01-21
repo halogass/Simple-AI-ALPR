@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "serverAi",
+        "name": "server",
         "sources": [
-            "serverAi.pyx"
+            "server.pyx"
         ]
     },
-    "module_name": "serverAi"
+    "module_name": "server"
 }
 END: Cython Metadata */
 
@@ -685,8 +685,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__serverAi
-#define __PYX_HAVE_API__serverAi
+#define __PYX_HAVE__server
+#define __PYX_HAVE_API__server
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -897,33 +897,33 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "serverAi.pyx",
+  "server.pyx",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_8serverAi___pyx_scope_struct__index;
-struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api;
+struct __pyx_obj_6server___pyx_scope_struct__index;
+struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api;
 
-/* "serverAi.pyx":37
+/* "server.pyx":36
  * 
  * @lpr.get("/", include_in_schema=False)
  * async def index():             # <<<<<<<<<<<<<<
  *     return RedirectResponse(url="/docs")
  * 
  */
-struct __pyx_obj_8serverAi___pyx_scope_struct__index {
+struct __pyx_obj_6server___pyx_scope_struct__index {
   PyObject_HEAD
 };
 
 
-/* "serverAi.pyx":41
+/* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  */
-struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api {
+struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api {
   PyObject_HEAD
   PyObject *__pyx_v__;
   PyObject *__pyx_v_bbox;
@@ -1444,17 +1444,18 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'serverAi' */
-static PyTypeObject *__pyx_ptype_8serverAi___pyx_scope_struct__index = 0;
-static PyTypeObject *__pyx_ptype_8serverAi___pyx_scope_struct_1_lpr_api = 0;
-#define __Pyx_MODULE_NAME "serverAi"
-extern int __pyx_module_is_main_serverAi;
-int __pyx_module_is_main_serverAi = 0;
+/* Module declarations from 'server' */
+static PyTypeObject *__pyx_ptype_6server___pyx_scope_struct__index = 0;
+static PyTypeObject *__pyx_ptype_6server___pyx_scope_struct_1_lpr_api = 0;
+#define __Pyx_MODULE_NAME "server"
+extern int __pyx_module_is_main_server;
+int __pyx_module_is_main_server = 0;
 
-/* Implementation of 'serverAi' */
+/* Implementation of 'server' */
 static PyObject *__pyx_builtin_round;
 static const char __pyx_k__4[] = ".";
-static const char __pyx_k__7[] = "/";
+static const char __pyx_k__5[] = "/";
+static const char __pyx_k__9[] = "_";
 static const char __pyx_k_np[] = "np";
 static const char __pyx_k_x1[] = "x1";
 static const char __pyx_k_x2[] = "x2";
@@ -1462,7 +1463,6 @@ static const char __pyx_k_y1[] = "y1";
 static const char __pyx_k_y2[] = "y2";
 static const char __pyx_k_LPR[] = "LPR";
 static const char __pyx_k_PNG[] = ".PNG";
-static const char __pyx_k__11[] = "_";
 static const char __pyx_k_cv2[] = "cv2";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_img[] = "img";
@@ -1511,7 +1511,6 @@ static const char __pyx_k_yakin[] = "yakin";
 static const char __pyx_k_base64[] = "base64";
 static const char __pyx_k_failed[] = "failed";
 static const char __pyx_k_import[] = "__import__";
-static const char __pyx_k_main_2[] = "main";
 static const char __pyx_k_name_2[] = "name";
 static const char __pyx_k_result[] = "result";
 static const char __pyx_k_server[] = "server";
@@ -1520,7 +1519,6 @@ static const char __pyx_k_v0_lpr[] = "/v0/lpr";
 static const char __pyx_k_Boolean[] = "Boolean";
 static const char __pyx_k_FastAPI[] = "FastAPI";
 static const char __pyx_k_ai_type[] = "ai_type";
-static const char __pyx_k_arsalpr[] = "arsalpr";
 static const char __pyx_k_contact[] = "contact";
 static const char __pyx_k_fastapi[] = "fastapi";
 static const char __pyx_k_headers[] = "headers";
@@ -1535,7 +1533,6 @@ static const char __pyx_k_contents[] = "contents";
 static const char __pyx_k_filename[] = "filename";
 static const char __pyx_k_imdecode[] = "imdecode";
 static const char __pyx_k_imencode[] = "imencode";
-static const char __pyx_k_serverAi[] = "serverAi";
 static const char __pyx_k_superRes[] = "superRes";
 static const char __pyx_k_127_0_0_1[] = "127.0.0.1";
 static const char __pyx_k_b64encode[] = "b64encode";
@@ -1548,16 +1545,16 @@ static const char __pyx_k_frombuffer[] = "frombuffer";
 static const char __pyx_k_hostIpAddr[] = "hostIpAddr";
 static const char __pyx_k_mainProses[] = "mainProses";
 static const char __pyx_k_result_img[] = "result_img";
+static const char __pyx_k_server_pyx[] = "server.pyx";
 static const char __pyx_k_statusBaca[] = "statusBaca";
 static const char __pyx_k_description[] = "description";
 static const char __pyx_k_encoded_img[] = "encoded_img";
 static const char __pyx_k_jumlahNopol[] = "jumlahNopol";
 static const char __pyx_k_AI_Developer[] = "AI-Developer";
 static const char __pyx_k_IMREAD_COLOR[] = "IMREAD_COLOR";
-static const char __pyx_k_JSONResponse[] = "JSONResponse";
+static const char __pyx_k_arsalpr_cuda[] = "arsalpr_cuda";
 static const char __pyx_k_license_info[] = "license_info";
 static const char __pyx_k_processedImg[] = "processedImg";
-static const char __pyx_k_serverAi_pyx[] = "serverAi.pyx";
 static const char __pyx_k_arsa_server_1[] = "arsa-server-1";
 static const char __pyx_k_dictPlatNomor[] = "dictPlatNomor";
 static const char __pyx_k_license_plate[] = "license_plate";
@@ -1568,7 +1565,6 @@ static const char __pyx_k_ARSA_Technology[] = "ARSA-Technology";
 static const char __pyx_k_RedirectResponse[] = "RedirectResponse";
 static const char __pyx_k_dictPlatNomorKey[] = "dictPlatNomorKey";
 static const char __pyx_k_ARSA_LPR_API_DEMO[] = "ARSA LPR API DEMO";
-static const char __pyx_k_fastapi_responses[] = "fastapi.responses";
 static const char __pyx_k_include_in_schema[] = "include_in_schema";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_processing_time_ms[] = "processing_time(ms)";
@@ -1590,20 +1586,19 @@ static PyObject *__pyx_n_s_File;
 static PyObject *__pyx_kp_s_Hilmy_Izzulhaq;
 static PyObject *__pyx_n_s_IMREAD_COLOR;
 static PyObject *__pyx_kp_s_Image_must_be_jpg_or_png_format;
-static PyObject *__pyx_n_s_JSONResponse;
 static PyObject *__pyx_n_s_LPR;
 static PyObject *__pyx_kp_s_PNG;
 static PyObject *__pyx_n_s_RedirectResponse;
 static PyObject *__pyx_n_s_UploadFile;
-static PyObject *__pyx_n_s__11;
 static PyObject *__pyx_kp_s__4;
-static PyObject *__pyx_kp_s__7;
+static PyObject *__pyx_kp_s__5;
+static PyObject *__pyx_n_s__9;
 static PyObject *__pyx_n_s_aiLpr;
 static PyObject *__pyx_n_s_ai_type;
 static PyObject *__pyx_n_s_app_desc;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_kp_s_arsa_server_1;
-static PyObject *__pyx_n_s_arsalpr;
+static PyObject *__pyx_n_s_arsalpr_cuda;
 static PyObject *__pyx_n_s_await;
 static PyObject *__pyx_n_s_b64encode;
 static PyObject *__pyx_n_s_base64;
@@ -1625,7 +1620,6 @@ static PyObject *__pyx_n_s_encoded_imgOut;
 static PyObject *__pyx_n_s_extension;
 static PyObject *__pyx_n_s_failed;
 static PyObject *__pyx_n_s_fastapi;
-static PyObject *__pyx_n_s_fastapi_responses;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_filename;
 static PyObject *__pyx_n_s_frombuffer;
@@ -1654,7 +1648,6 @@ static PyObject *__pyx_n_s_lpr;
 static PyObject *__pyx_n_s_lpr_api;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_mainProses;
-static PyObject *__pyx_n_s_main_2;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_name_2;
 static PyObject *__pyx_n_s_noPol;
@@ -1674,8 +1667,7 @@ static PyObject *__pyx_n_s_round;
 static PyObject *__pyx_n_s_run;
 static PyObject *__pyx_n_s_send;
 static PyObject *__pyx_n_s_server;
-static PyObject *__pyx_n_s_serverAi;
-static PyObject *__pyx_kp_s_serverAi_pyx;
+static PyObject *__pyx_kp_s_server_pyx;
 static PyObject *__pyx_n_s_skor;
 static PyObject *__pyx_n_s_split;
 static PyObject *__pyx_n_s_starlette_responses;
@@ -1703,11 +1695,10 @@ static PyObject *__pyx_n_s_y2;
 static PyObject *__pyx_n_s_yakin;
 static PyObject *__pyx_n_s_ymax;
 static PyObject *__pyx_n_s_ymin;
-static PyObject *__pyx_pf_8serverAi_index(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_8serverAi_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_imOut, PyObject *__pyx_v_superRes, PyObject *__pyx_v_file); /* proto */
-static PyObject *__pyx_pf_8serverAi_6main(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct__index(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct_1_lpr_api(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_6server_index(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_6server_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_imOut, PyObject *__pyx_v_superRes, PyObject *__pyx_v_file); /* proto */
+static PyObject *__pyx_tp_new_6server___pyx_scope_struct__index(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6server___pyx_scope_struct_1_lpr_api(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
@@ -1715,18 +1706,17 @@ static PyObject *__pyx_int_3;
 static PyObject *__pyx_int_5402;
 static PyObject *__pyx_k__2;
 static PyObject *__pyx_codeobj_;
-static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
+static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_tuple__8;
-static PyObject *__pyx_tuple__9;
 static PyObject *__pyx_tuple__10;
+static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__12;
 static PyObject *__pyx_codeobj__3;
-static PyObject *__pyx_codeobj__13;
 /* Late includes */
-static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_6server_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "serverAi.pyx":37
+/* "server.pyx":36
  * 
  * @lpr.get("/", include_in_schema=False)
  * async def index():             # <<<<<<<<<<<<<<
@@ -1735,37 +1725,37 @@ static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_gene
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8serverAi_1index(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_8serverAi_1index = {"index", (PyCFunction)__pyx_pw_8serverAi_1index, METH_NOARGS, 0};
-static PyObject *__pyx_pw_8serverAi_1index(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_6server_1index(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_6server_1index = {"index", (PyCFunction)__pyx_pw_6server_1index, METH_NOARGS, 0};
+static PyObject *__pyx_pw_6server_1index(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("index (wrapper)", 0);
-  __pyx_r = __pyx_pf_8serverAi_index(__pyx_self);
+  __pyx_r = __pyx_pf_6server_index(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8serverAi_index(CYTHON_UNUSED PyObject *__pyx_self) {
-  struct __pyx_obj_8serverAi___pyx_scope_struct__index *__pyx_cur_scope;
+static PyObject *__pyx_pf_6server_index(CYTHON_UNUSED PyObject *__pyx_self) {
+  struct __pyx_obj_6server___pyx_scope_struct__index *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("index", 0);
-  __pyx_cur_scope = (struct __pyx_obj_8serverAi___pyx_scope_struct__index *)__pyx_tp_new_8serverAi___pyx_scope_struct__index(__pyx_ptype_8serverAi___pyx_scope_struct__index, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_6server___pyx_scope_struct__index *)__pyx_tp_new_6server___pyx_scope_struct__index(__pyx_ptype_6server___pyx_scope_struct__index, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_8serverAi___pyx_scope_struct__index *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_6server___pyx_scope_struct__index *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 37, __pyx_L1_error)
+    __PYX_ERR(0, 36, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_8serverAi_2generator, __pyx_codeobj_, (PyObject *) __pyx_cur_scope, __pyx_n_s_index, __pyx_n_s_index, __pyx_n_s_serverAi); if (unlikely(!gen)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6server_2generator, __pyx_codeobj_, (PyObject *) __pyx_cur_scope, __pyx_n_s_index, __pyx_n_s_index, __pyx_n_s_server); if (unlikely(!gen)) __PYX_ERR(0, 36, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -1773,7 +1763,7 @@ static PyObject *__pyx_pf_8serverAi_index(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("serverAi.index", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("server.index", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -1781,7 +1771,7 @@ static PyObject *__pyx_pf_8serverAi_index(CYTHON_UNUSED PyObject *__pyx_self) {
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_6server_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
@@ -1799,9 +1789,9 @@ static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_gene
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 36, __pyx_L1_error)
 
-  /* "serverAi.pyx":38
+  /* "server.pyx":37
  * @lpr.get("/", include_in_schema=False)
  * async def index():
  *     return RedirectResponse(url="/docs")             # <<<<<<<<<<<<<<
@@ -1809,12 +1799,12 @@ static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_gene
  * @lpr.post("/v0/lpr", tags=["LPR"])
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_RedirectResponse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_RedirectResponse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_url, __pyx_kp_s_docs) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_url, __pyx_kp_s_docs) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1822,7 +1812,7 @@ static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_gene
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "serverAi.pyx":37
+  /* "server.pyx":36
  * 
  * @lpr.get("/", include_in_schema=False)
  * async def index():             # <<<<<<<<<<<<<<
@@ -1846,9 +1836,9 @@ static PyObject *__pyx_gb_8serverAi_2generator(__pyx_CoroutineObject *__pyx_gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_6server_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "serverAi.pyx":41
+/* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
@@ -1857,9 +1847,9 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8serverAi_4lpr_api(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8serverAi_4lpr_api = {"lpr_api", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8serverAi_4lpr_api, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8serverAi_4lpr_api(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_6server_4lpr_api(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6server_4lpr_api = {"lpr_api", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_6server_4lpr_api, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_6server_4lpr_api(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_imOut = 0;
   PyObject *__pyx_v_superRes = 0;
   PyObject *__pyx_v_file = 0;
@@ -1895,7 +1885,7 @@ static PyObject *__pyx_pw_8serverAi_4lpr_api(PyObject *__pyx_self, PyObject *__p
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_superRes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("lpr_api", 0, 2, 3, 1); __PYX_ERR(0, 41, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("lpr_api", 0, 2, 3, 1); __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -1905,7 +1895,7 @@ static PyObject *__pyx_pw_8serverAi_4lpr_api(PyObject *__pyx_self, PyObject *__p
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lpr_api") < 0)) __PYX_ERR(0, 41, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lpr_api") < 0)) __PYX_ERR(0, 40, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1923,32 +1913,32 @@ static PyObject *__pyx_pw_8serverAi_4lpr_api(PyObject *__pyx_self, PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lpr_api", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 41, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lpr_api", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 40, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("serverAi.lpr_api", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("server.lpr_api", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8serverAi_3lpr_api(__pyx_self, __pyx_v_imOut, __pyx_v_superRes, __pyx_v_file);
+  __pyx_r = __pyx_pf_6server_3lpr_api(__pyx_self, __pyx_v_imOut, __pyx_v_superRes, __pyx_v_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8serverAi_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_imOut, PyObject *__pyx_v_superRes, PyObject *__pyx_v_file) {
-  struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *__pyx_cur_scope;
+static PyObject *__pyx_pf_6server_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_imOut, PyObject *__pyx_v_superRes, PyObject *__pyx_v_file) {
+  struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lpr_api", 0);
-  __pyx_cur_scope = (struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)__pyx_tp_new_8serverAi___pyx_scope_struct_1_lpr_api(__pyx_ptype_8serverAi___pyx_scope_struct_1_lpr_api, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)__pyx_tp_new_6server___pyx_scope_struct_1_lpr_api(__pyx_ptype_6server___pyx_scope_struct_1_lpr_api, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 41, __pyx_L1_error)
+    __PYX_ERR(0, 40, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -1962,7 +1952,7 @@ static PyObject *__pyx_pf_8serverAi_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self,
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_file);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_file);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_8serverAi_5generator1, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_lpr_api, __pyx_n_s_lpr_api, __pyx_n_s_serverAi); if (unlikely(!gen)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_6server_5generator1, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_lpr_api, __pyx_n_s_lpr_api, __pyx_n_s_server); if (unlikely(!gen)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -1970,7 +1960,7 @@ static PyObject *__pyx_pf_8serverAi_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self,
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("serverAi.lpr_api", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("server.lpr_api", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -1978,9 +1968,9 @@ static PyObject *__pyx_pf_8serverAi_3lpr_api(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_6server_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *__pyx_cur_scope = ((struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)__pyx_generator->closure);
+  struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *__pyx_cur_scope = ((struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -2007,18 +1997,18 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 40, __pyx_L1_error)
 
-  /* "serverAi.pyx":42
+  /* "server.pyx":41
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")             # <<<<<<<<<<<<<<
  *     if not extension:
  *         return "Image must be jpg or png format!"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_filename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_filename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_split); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_split); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2033,31 +2023,31 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_kp_s__4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_s__4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_jpg, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_jpg, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 41, __pyx_L1_error)
   if (!__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_jpeg, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_jpeg, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 41, __pyx_L1_error)
   if (!__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_png, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_png, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 41, __pyx_L1_error)
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_cur_scope->__pyx_v_extension = __pyx_t_4;
 
-  /* "serverAi.pyx":43
+  /* "server.pyx":42
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:             # <<<<<<<<<<<<<<
@@ -2067,7 +2057,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __pyx_t_4 = ((!(__pyx_cur_scope->__pyx_v_extension != 0)) != 0);
   if (__pyx_t_4) {
 
-    /* "serverAi.pyx":44
+    /* "server.pyx":43
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  *         return "Image must be jpg or png format!"             # <<<<<<<<<<<<<<
@@ -2078,7 +2068,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_kp_s_Image_must_be_jpg_or_png_format);
     goto __pyx_L0;
 
-    /* "serverAi.pyx":43
+    /* "server.pyx":42
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:             # <<<<<<<<<<<<<<
@@ -2087,14 +2077,14 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
  */
   }
 
-  /* "serverAi.pyx":45
+  /* "server.pyx":44
  *     if not extension:
  *         return "Image must be jpg or png format!"
  *     contents = await file.read()             # <<<<<<<<<<<<<<
  *     nparr = np.frombuffer(contents, np.uint8)
  *     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_read); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_read); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -2108,7 +2098,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   }
   __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3);
@@ -2122,32 +2112,32 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L8_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 45, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 44, __pyx_L1_error)
     __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
   } else {
     __pyx_t_3 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_3) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_contents = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":46
+  /* "server.pyx":45
  *         return "Image must be jpg or png format!"
  *     contents = await file.read()
  *     nparr = np.frombuffer(contents, np.uint8)             # <<<<<<<<<<<<<<
  *     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_frombuffer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_frombuffer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -2165,7 +2155,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_contents, __pyx_t_6};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2174,14 +2164,14 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_contents, __pyx_t_6};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else
   #endif
   {
-    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -2192,7 +2182,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GIVEREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_6);
     __pyx_t_6 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
@@ -2201,21 +2191,21 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __pyx_cur_scope->__pyx_v_nparr = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":47
+  /* "server.pyx":46
  *     contents = await file.read()
  *     nparr = np.frombuffer(contents, np.uint8)
  *     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)             # <<<<<<<<<<<<<<
  * 
  *     processedImg, platNomor, latensi = aiLpr.mainProses(img, superRes)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imdecode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imdecode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_IMREAD_COLOR); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_IMREAD_COLOR); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2233,7 +2223,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_8)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_nparr, __pyx_t_6};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2242,14 +2232,14 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_nparr, __pyx_t_6};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else
   #endif
   {
-    __pyx_t_1 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -2260,7 +2250,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GIVEREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_7, __pyx_t_6);
     __pyx_t_6 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
@@ -2269,16 +2259,16 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __pyx_cur_scope->__pyx_v_img = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":49
+  /* "server.pyx":48
  *     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
  * 
  *     processedImg, platNomor, latensi = aiLpr.mainProses(img, superRes)             # <<<<<<<<<<<<<<
  * 
  *     tipeOcr = 'license_plate_recognition'
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_aiLpr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_aiLpr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_mainProses); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_mainProses); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_8 = NULL;
@@ -2296,7 +2286,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_cur_scope->__pyx_v_img, __pyx_cur_scope->__pyx_v_superRes};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -2304,13 +2294,13 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
     PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_cur_scope->__pyx_v_img, __pyx_cur_scope->__pyx_v_superRes};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_8) {
       __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -2321,7 +2311,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_superRes);
     __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_superRes);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, __pyx_cur_scope->__pyx_v_superRes);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
@@ -2332,7 +2322,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 49, __pyx_L1_error)
+      __PYX_ERR(0, 48, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -2348,17 +2338,17 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_INCREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_t_8);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_8 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_9 = Py_TYPE(__pyx_t_2)->tp_iternext;
@@ -2368,7 +2358,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GOTREF(__pyx_t_6);
     index = 2; __pyx_t_8 = __pyx_t_9(__pyx_t_2); if (unlikely(!__pyx_t_8)) goto __pyx_L9_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_8);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_2), 3) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_2), 3) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
     __pyx_t_9 = NULL;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     goto __pyx_L10_unpacking_done;
@@ -2376,7 +2366,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_9 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 49, __pyx_L1_error)
+    __PYX_ERR(0, 48, __pyx_L1_error)
     __pyx_L10_unpacking_done:;
   }
   __Pyx_GIVEREF(__pyx_t_1);
@@ -2389,7 +2379,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __pyx_cur_scope->__pyx_v_latensi = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "serverAi.pyx":51
+  /* "server.pyx":50
  *     processedImg, platNomor, latensi = aiLpr.mainProses(img, superRes)
  * 
  *     tipeOcr = 'license_plate_recognition'             # <<<<<<<<<<<<<<
@@ -2400,20 +2390,20 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __Pyx_GIVEREF(__pyx_n_s_license_plate_recognition);
   __pyx_cur_scope->__pyx_v_tipeOcr = __pyx_n_s_license_plate_recognition;
 
-  /* "serverAi.pyx":53
+  /* "server.pyx":52
  *     tipeOcr = 'license_plate_recognition'
  * 
  *     dictPlatNomor = {}             # <<<<<<<<<<<<<<
  *     jumlahNopol = 0
  *     statusBaca = 'failed'
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_dictPlatNomor = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":54
+  /* "server.pyx":53
  * 
  *     dictPlatNomor = {}
  *     jumlahNopol = 0             # <<<<<<<<<<<<<<
@@ -2424,7 +2414,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __Pyx_GIVEREF(__pyx_int_0);
   __pyx_cur_scope->__pyx_v_jumlahNopol = __pyx_int_0;
 
-  /* "serverAi.pyx":55
+  /* "server.pyx":54
  *     dictPlatNomor = {}
  *     jumlahNopol = 0
  *     statusBaca = 'failed'             # <<<<<<<<<<<<<<
@@ -2435,7 +2425,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __Pyx_GIVEREF(__pyx_n_s_failed);
   __pyx_cur_scope->__pyx_v_statusBaca = __pyx_n_s_failed;
 
-  /* "serverAi.pyx":56
+  /* "server.pyx":55
  *     jumlahNopol = 0
  *     statusBaca = 'failed'
  *     for bbox, noPol, yakin in platNomor:             # <<<<<<<<<<<<<<
@@ -2446,26 +2436,26 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_t_3 = __pyx_cur_scope->__pyx_v_platNomor; __Pyx_INCREF(__pyx_t_3); __pyx_t_10 = 0;
     __pyx_t_11 = NULL;
   } else {
-    __pyx_t_10 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_platNomor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_10 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_platNomor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_11 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 55, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_11)) {
       if (likely(PyList_CheckExact(__pyx_t_3))) {
         if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_8); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 56, __pyx_L1_error)
+        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_8); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 55, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
       } else {
         if (__pyx_t_10 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_8); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 56, __pyx_L1_error)
+        __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_8); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 55, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
       }
@@ -2475,7 +2465,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 56, __pyx_L1_error)
+          else __PYX_ERR(0, 55, __pyx_L1_error)
         }
         break;
       }
@@ -2487,7 +2477,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 56, __pyx_L1_error)
+        __PYX_ERR(0, 55, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -2503,17 +2493,17 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_INCREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_t_2);
       #else
-      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_1 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_12 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_12 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_9 = Py_TYPE(__pyx_t_12)->tp_iternext;
@@ -2523,7 +2513,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_GOTREF(__pyx_t_1);
       index = 2; __pyx_t_2 = __pyx_t_9(__pyx_t_12); if (unlikely(!__pyx_t_2)) goto __pyx_L13_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_2);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_12), 3) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_12), 3) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       goto __pyx_L14_unpacking_done;
@@ -2531,7 +2521,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 56, __pyx_L1_error)
+      __PYX_ERR(0, 55, __pyx_L1_error)
       __pyx_L14_unpacking_done:;
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_bbox);
@@ -2547,7 +2537,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "serverAi.pyx":57
+    /* "server.pyx":56
  *     statusBaca = 'failed'
  *     for bbox, noPol, yakin in platNomor:
  *         x1, y1, x2, y2 = bbox             # <<<<<<<<<<<<<<
@@ -2560,7 +2550,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       if (unlikely(size != 4)) {
         if (size > 4) __Pyx_RaiseTooManyValuesError(4);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 57, __pyx_L1_error)
+        __PYX_ERR(0, 56, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -2583,7 +2573,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
         Py_ssize_t i;
         PyObject** temps[4] = {&__pyx_t_8,&__pyx_t_2,&__pyx_t_1,&__pyx_t_6};
         for (i=0; i < 4; i++) {
-          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 57, __pyx_L1_error)
+          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 56, __pyx_L1_error)
           __Pyx_GOTREF(item);
           *(temps[i]) = item;
         }
@@ -2592,7 +2582,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     } else {
       Py_ssize_t index = -1;
       PyObject** temps[4] = {&__pyx_t_8,&__pyx_t_2,&__pyx_t_1,&__pyx_t_6};
-      __pyx_t_12 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_bbox); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 57, __pyx_L1_error)
+      __pyx_t_12 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_bbox); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 56, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_9 = Py_TYPE(__pyx_t_12)->tp_iternext;
       for (index=0; index < 4; index++) {
@@ -2600,7 +2590,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
         __Pyx_GOTREF(item);
         *(temps[index]) = item;
       }
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_12), 4) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_12), 4) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       goto __pyx_L16_unpacking_done;
@@ -2608,7 +2598,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 57, __pyx_L1_error)
+      __PYX_ERR(0, 56, __pyx_L1_error)
       __pyx_L16_unpacking_done:;
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_x1);
@@ -2628,21 +2618,21 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "serverAi.pyx":58
+    /* "server.pyx":57
  *     for bbox, noPol, yakin in platNomor:
  *         x1, y1, x2, y2 = bbox
  *         jumlahNopol += 1             # <<<<<<<<<<<<<<
  *         statusBaca = 'success'
  *         dictPlatNomorKey = str(jumlahNopol)
  */
-    __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_jumlahNopol, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_jumlahNopol, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_jumlahNopol);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_jumlahNopol, __pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "serverAi.pyx":59
+    /* "server.pyx":58
  *         x1, y1, x2, y2 = bbox
  *         jumlahNopol += 1
  *         statusBaca = 'success'             # <<<<<<<<<<<<<<
@@ -2654,104 +2644,104 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_statusBaca, __pyx_n_s_success);
     __Pyx_GIVEREF(__pyx_n_s_success);
 
-    /* "serverAi.pyx":60
+    /* "server.pyx":59
  *         jumlahNopol += 1
  *         statusBaca = 'success'
  *         dictPlatNomorKey = str(jumlahNopol)             # <<<<<<<<<<<<<<
  *         dictPlatNomor[dictPlatNomorKey] = {
  *             'xmin':round(float(x1)),
  */
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_jumlahNopol); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_jumlahNopol); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_dictPlatNomorKey);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_dictPlatNomorKey, __pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "serverAi.pyx":62
+    /* "server.pyx":61
  *         dictPlatNomorKey = str(jumlahNopol)
  *         dictPlatNomor[dictPlatNomorKey] = {
  *             'xmin':round(float(x1)),             # <<<<<<<<<<<<<<
  *             'ymin':round(float(y1)),
  *             'xmax':round(float(x2)),
  */
-    __pyx_t_6 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_x1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_x1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_xmin, __pyx_t_2) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_xmin, __pyx_t_2) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "serverAi.pyx":63
+    /* "server.pyx":62
  *         dictPlatNomor[dictPlatNomorKey] = {
  *             'xmin':round(float(x1)),
  *             'ymin':round(float(y1)),             # <<<<<<<<<<<<<<
  *             'xmax':round(float(x2)),
  *             'ymax':round(float(y2)),
  */
-    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_y1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_y1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_ymin, __pyx_t_1) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_ymin, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "serverAi.pyx":64
+    /* "server.pyx":63
  *             'xmin':round(float(x1)),
  *             'ymin':round(float(y1)),
  *             'xmax':round(float(x2)),             # <<<<<<<<<<<<<<
  *             'ymax':round(float(y2)),
  *             'license_plate':str(noPol),
  */
-    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_x2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_x2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_xmax, __pyx_t_2) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_xmax, __pyx_t_2) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "serverAi.pyx":65
+    /* "server.pyx":64
  *             'ymin':round(float(y1)),
  *             'xmax':round(float(x2)),
  *             'ymax':round(float(y2)),             # <<<<<<<<<<<<<<
  *             'license_plate':str(noPol),
  *             'skor':round(float(yakin), 2)
  */
-    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_y2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_y2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_round, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_ymax, __pyx_t_1) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_ymax, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "serverAi.pyx":66
+    /* "server.pyx":65
  *             'xmax':round(float(x2)),
  *             'ymax':round(float(y2)),
  *             'license_plate':str(noPol),             # <<<<<<<<<<<<<<
  *             'skor':round(float(yakin), 2)
  *         }
  */
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_noPol); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_noPol); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_license_plate, __pyx_t_1) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_license_plate, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "serverAi.pyx":67
+    /* "server.pyx":66
  *             'ymax':round(float(y2)),
  *             'license_plate':str(noPol),
  *             'skor':round(float(yakin), 2)             # <<<<<<<<<<<<<<
  *         }
  * 
  */
-    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_yakin); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_cur_scope->__pyx_v_yakin); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
@@ -2759,23 +2749,23 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __Pyx_GIVEREF(__pyx_int_2);
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_int_2);
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_skor, __pyx_t_1) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_skor, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "serverAi.pyx":61
+    /* "server.pyx":60
  *         statusBaca = 'success'
  *         dictPlatNomorKey = str(jumlahNopol)
  *         dictPlatNomor[dictPlatNomorKey] = {             # <<<<<<<<<<<<<<
  *             'xmin':round(float(x1)),
  *             'ymin':round(float(y1)),
  */
-    if (unlikely(PyDict_SetItem(__pyx_cur_scope->__pyx_v_dictPlatNomor, __pyx_cur_scope->__pyx_v_dictPlatNomorKey, __pyx_t_6) < 0)) __PYX_ERR(0, 61, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_cur_scope->__pyx_v_dictPlatNomor, __pyx_cur_scope->__pyx_v_dictPlatNomorKey, __pyx_t_6) < 0)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "serverAi.pyx":56
+    /* "server.pyx":55
  *     jumlahNopol = 0
  *     statusBaca = 'failed'
  *     for bbox, noPol, yakin in platNomor:             # <<<<<<<<<<<<<<
@@ -2785,34 +2775,34 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":71
+  /* "server.pyx":70
  * 
  *     dictOutput = {
  *         'status':statusBaca,             # <<<<<<<<<<<<<<
  *         'ai_type':tipeOcr,
  *         'processing_time(ms)':round(latensi, 3),
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_status, __pyx_cur_scope->__pyx_v_statusBaca) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_status, __pyx_cur_scope->__pyx_v_statusBaca) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
 
-  /* "serverAi.pyx":72
+  /* "server.pyx":71
  *     dictOutput = {
  *         'status':statusBaca,
  *         'ai_type':tipeOcr,             # <<<<<<<<<<<<<<
  *         'processing_time(ms)':round(latensi, 3),
  *         'result':dictPlatNomor,
  */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ai_type, __pyx_cur_scope->__pyx_v_tipeOcr) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ai_type, __pyx_cur_scope->__pyx_v_tipeOcr) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
 
-  /* "serverAi.pyx":73
+  /* "server.pyx":72
  *         'status':statusBaca,
  *         'ai_type':tipeOcr,
  *         'processing_time(ms)':round(latensi, 3),             # <<<<<<<<<<<<<<
  *         'result':dictPlatNomor,
  *         'filename':file.filename
  */
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_latensi);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_latensi);
@@ -2820,49 +2810,49 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   __Pyx_INCREF(__pyx_int_3);
   __Pyx_GIVEREF(__pyx_int_3);
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_int_3);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_kp_s_processing_time_ms, __pyx_t_1) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_kp_s_processing_time_ms, __pyx_t_1) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "serverAi.pyx":74
+  /* "server.pyx":73
  *         'ai_type':tipeOcr,
  *         'processing_time(ms)':round(latensi, 3),
  *         'result':dictPlatNomor,             # <<<<<<<<<<<<<<
  *         'filename':file.filename
  *     }
  */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_result, __pyx_cur_scope->__pyx_v_dictPlatNomor) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_result, __pyx_cur_scope->__pyx_v_dictPlatNomor) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
 
-  /* "serverAi.pyx":75
+  /* "server.pyx":74
  *         'processing_time(ms)':round(latensi, 3),
  *         'result':dictPlatNomor,
  *         'filename':file.filename             # <<<<<<<<<<<<<<
  *     }
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_file, __pyx_n_s_filename); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_filename, __pyx_t_1) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_filename, __pyx_t_1) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_dictOutput = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":78
+  /* "server.pyx":77
  *     }
  * 
  *     if imOut == False:             # <<<<<<<<<<<<<<
  *         return dictOutput
  *     elif imOut == True:
  */
-  __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_imOut, Py_False, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_imOut, Py_False, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "serverAi.pyx":79
+    /* "server.pyx":78
  * 
  *     if imOut == False:
  *         return dictOutput             # <<<<<<<<<<<<<<
@@ -2873,7 +2863,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_cur_scope->__pyx_v_dictOutput);
     goto __pyx_L0;
 
-    /* "serverAi.pyx":78
+    /* "server.pyx":77
  *     }
  * 
  *     if imOut == False:             # <<<<<<<<<<<<<<
@@ -2882,28 +2872,28 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
  */
   }
 
-  /* "serverAi.pyx":80
+  /* "server.pyx":79
  *     if imOut == False:
  *         return dictOutput
  *     elif imOut == True:             # <<<<<<<<<<<<<<
  *         _, encoded_img = cv2.imencode('.PNG', processedImg)
  *         encoded_imgOut = base64.b64encode(encoded_img)
  */
-  __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_imOut, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_imOut, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "serverAi.pyx":81
+    /* "server.pyx":80
  *         return dictOutput
  *     elif imOut == True:
  *         _, encoded_img = cv2.imencode('.PNG', processedImg)             # <<<<<<<<<<<<<<
  *         encoded_imgOut = base64.b64encode(encoded_img)
  *         dictOutput['result_img'] = encoded_imgOut
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_imencode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_imencode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -2921,7 +2911,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_kp_s_PNG, __pyx_cur_scope->__pyx_v_processedImg};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_3);
     } else
@@ -2929,13 +2919,13 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_kp_s_PNG, __pyx_cur_scope->__pyx_v_processedImg};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_3);
     } else
     #endif
     {
-      __pyx_t_2 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -2946,7 +2936,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_INCREF(__pyx_cur_scope->__pyx_v_processedImg);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_processedImg);
       PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_7, __pyx_cur_scope->__pyx_v_processedImg);
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
@@ -2957,7 +2947,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 81, __pyx_L1_error)
+        __PYX_ERR(0, 80, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -2970,15 +2960,15 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(__pyx_t_2);
       #else
-      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_1 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_1 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_9 = Py_TYPE(__pyx_t_1)->tp_iternext;
@@ -2986,7 +2976,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_GOTREF(__pyx_t_6);
       index = 1; __pyx_t_2 = __pyx_t_9(__pyx_t_1); if (unlikely(!__pyx_t_2)) goto __pyx_L18_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_2);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_1), 2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_1), 2) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L19_unpacking_done;
@@ -2994,7 +2984,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 81, __pyx_L1_error)
+      __PYX_ERR(0, 80, __pyx_L1_error)
       __pyx_L19_unpacking_done:;
     }
     __Pyx_GIVEREF(__pyx_t_6);
@@ -3004,16 +2994,16 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_cur_scope->__pyx_v_encoded_img = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "serverAi.pyx":82
+    /* "server.pyx":81
  *     elif imOut == True:
  *         _, encoded_img = cv2.imencode('.PNG', processedImg)
  *         encoded_imgOut = base64.b64encode(encoded_img)             # <<<<<<<<<<<<<<
  *         dictOutput['result_img'] = encoded_imgOut
  *         return dictOutput
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_base64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_base64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_b64encode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_b64encode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -3028,23 +3018,23 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_cur_scope->__pyx_v_encoded_img) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_cur_scope->__pyx_v_encoded_img);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_cur_scope->__pyx_v_encoded_imgOut = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "serverAi.pyx":83
+    /* "server.pyx":82
  *         _, encoded_img = cv2.imencode('.PNG', processedImg)
  *         encoded_imgOut = base64.b64encode(encoded_img)
  *         dictOutput['result_img'] = encoded_imgOut             # <<<<<<<<<<<<<<
  *         return dictOutput
  * 
  */
-    if (unlikely(PyDict_SetItem(__pyx_cur_scope->__pyx_v_dictOutput, __pyx_n_s_result_img, __pyx_cur_scope->__pyx_v_encoded_imgOut) < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_cur_scope->__pyx_v_dictOutput, __pyx_n_s_result_img, __pyx_cur_scope->__pyx_v_encoded_imgOut) < 0)) __PYX_ERR(0, 82, __pyx_L1_error)
 
-    /* "serverAi.pyx":84
+    /* "server.pyx":83
  *         encoded_imgOut = base64.b64encode(encoded_img)
  *         dictOutput['result_img'] = encoded_imgOut
  *         return dictOutput             # <<<<<<<<<<<<<<
@@ -3055,7 +3045,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
     __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_cur_scope->__pyx_v_dictOutput);
     goto __pyx_L0;
 
-    /* "serverAi.pyx":80
+    /* "server.pyx":79
  *     if imOut == False:
  *         return dictOutput
  *     elif imOut == True:             # <<<<<<<<<<<<<<
@@ -3065,7 +3055,7 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "serverAi.pyx":41
+  /* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
@@ -3095,112 +3085,14 @@ static PyObject *__pyx_gb_8serverAi_5generator1(__pyx_CoroutineObject *__pyx_gen
   return __pyx_r;
 }
 
-/* "serverAi.pyx":87
- * 
- * 
- * def main():             # <<<<<<<<<<<<<<
- *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
- */
+static struct __pyx_obj_6server___pyx_scope_struct__index *__pyx_freelist_6server___pyx_scope_struct__index[8];
+static int __pyx_freecount_6server___pyx_scope_struct__index = 0;
 
-/* Python wrapper */
-static PyObject *__pyx_pw_8serverAi_7main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_8serverAi_7main = {"main", (PyCFunction)__pyx_pw_8serverAi_7main, METH_NOARGS, 0};
-static PyObject *__pyx_pw_8serverAi_7main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("main (wrapper)", 0);
-  __pyx_r = __pyx_pf_8serverAi_6main(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_8serverAi_6main(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("main", 0);
-
-  /* "serverAi.pyx":88
- * 
- * def main():
- *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])             # <<<<<<<<<<<<<<
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_uvicorn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_run); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_lpr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_debug, Py_True) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_hostIpAddr); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_host, __pyx_t_4) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_port, __pyx_int_5402) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_INCREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
-  PyList_SET_ITEM(__pyx_t_4, 0, __pyx_tuple__5);
-  __Pyx_INCREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-  PyList_SET_ITEM(__pyx_t_4, 1, __pyx_tuple__6);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_headers, __pyx_t_4) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-  /* "serverAi.pyx":87
- * 
- * 
- * def main():             # <<<<<<<<<<<<<<
- *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("serverAi.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static struct __pyx_obj_8serverAi___pyx_scope_struct__index *__pyx_freelist_8serverAi___pyx_scope_struct__index[8];
-static int __pyx_freecount_8serverAi___pyx_scope_struct__index = 0;
-
-static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct__index(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_6server___pyx_scope_struct__index(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_8serverAi___pyx_scope_struct__index > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct__index)))) {
-    o = (PyObject*)__pyx_freelist_8serverAi___pyx_scope_struct__index[--__pyx_freecount_8serverAi___pyx_scope_struct__index];
-    memset(o, 0, sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct__index));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6server___pyx_scope_struct__index > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6server___pyx_scope_struct__index)))) {
+    o = (PyObject*)__pyx_freelist_6server___pyx_scope_struct__index[--__pyx_freecount_6server___pyx_scope_struct__index];
+    memset(o, 0, sizeof(struct __pyx_obj_6server___pyx_scope_struct__index));
     (void) PyObject_INIT(o, t);
   } else {
     o = (*t->tp_alloc)(t, 0);
@@ -3209,20 +3101,20 @@ static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct__index(PyTypeObject *
   return o;
 }
 
-static void __pyx_tp_dealloc_8serverAi___pyx_scope_struct__index(PyObject *o) {
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_8serverAi___pyx_scope_struct__index < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct__index)))) {
-    __pyx_freelist_8serverAi___pyx_scope_struct__index[__pyx_freecount_8serverAi___pyx_scope_struct__index++] = ((struct __pyx_obj_8serverAi___pyx_scope_struct__index *)o);
+static void __pyx_tp_dealloc_6server___pyx_scope_struct__index(PyObject *o) {
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6server___pyx_scope_struct__index < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6server___pyx_scope_struct__index)))) {
+    __pyx_freelist_6server___pyx_scope_struct__index[__pyx_freecount_6server___pyx_scope_struct__index++] = ((struct __pyx_obj_6server___pyx_scope_struct__index *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct__index = {
+static PyTypeObject __pyx_type_6server___pyx_scope_struct__index = {
   PyVarObject_HEAD_INIT(0, 0)
-  "serverAi.__pyx_scope_struct__index", /*tp_name*/
-  sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct__index), /*tp_basicsize*/
+  "server.__pyx_scope_struct__index", /*tp_name*/
+  sizeof(struct __pyx_obj_6server___pyx_scope_struct__index), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_8serverAi___pyx_scope_struct__index, /*tp_dealloc*/
+  __pyx_tp_dealloc_6server___pyx_scope_struct__index, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -3265,7 +3157,7 @@ static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct__index = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_8serverAi___pyx_scope_struct__index, /*tp_new*/
+  __pyx_tp_new_6server___pyx_scope_struct__index, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -3289,14 +3181,14 @@ static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct__index = {
   #endif
 };
 
-static struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *__pyx_freelist_8serverAi___pyx_scope_struct_1_lpr_api[8];
-static int __pyx_freecount_8serverAi___pyx_scope_struct_1_lpr_api = 0;
+static struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *__pyx_freelist_6server___pyx_scope_struct_1_lpr_api[8];
+static int __pyx_freecount_6server___pyx_scope_struct_1_lpr_api = 0;
 
-static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct_1_lpr_api(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_6server___pyx_scope_struct_1_lpr_api(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_8serverAi___pyx_scope_struct_1_lpr_api > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api)))) {
-    o = (PyObject*)__pyx_freelist_8serverAi___pyx_scope_struct_1_lpr_api[--__pyx_freecount_8serverAi___pyx_scope_struct_1_lpr_api];
-    memset(o, 0, sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6server___pyx_scope_struct_1_lpr_api > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api)))) {
+    o = (PyObject*)__pyx_freelist_6server___pyx_scope_struct_1_lpr_api[--__pyx_freecount_6server___pyx_scope_struct_1_lpr_api];
+    memset(o, 0, sizeof(struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -3306,8 +3198,8 @@ static PyObject *__pyx_tp_new_8serverAi___pyx_scope_struct_1_lpr_api(PyTypeObjec
   return o;
 }
 
-static void __pyx_tp_dealloc_8serverAi___pyx_scope_struct_1_lpr_api(PyObject *o) {
-  struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *p = (struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)o;
+static void __pyx_tp_dealloc_6server___pyx_scope_struct_1_lpr_api(PyObject *o) {
+  struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *p = (struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v__);
   Py_CLEAR(p->__pyx_v_bbox);
@@ -3334,16 +3226,16 @@ static void __pyx_tp_dealloc_8serverAi___pyx_scope_struct_1_lpr_api(PyObject *o)
   Py_CLEAR(p->__pyx_v_y1);
   Py_CLEAR(p->__pyx_v_y2);
   Py_CLEAR(p->__pyx_v_yakin);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_8serverAi___pyx_scope_struct_1_lpr_api < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api)))) {
-    __pyx_freelist_8serverAi___pyx_scope_struct_1_lpr_api[__pyx_freecount_8serverAi___pyx_scope_struct_1_lpr_api++] = ((struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6server___pyx_scope_struct_1_lpr_api < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api)))) {
+    __pyx_freelist_6server___pyx_scope_struct_1_lpr_api[__pyx_freecount_6server___pyx_scope_struct_1_lpr_api++] = ((struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_8serverAi___pyx_scope_struct_1_lpr_api(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_6server___pyx_scope_struct_1_lpr_api(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *p = (struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api *)o;
+  struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *p = (struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api *)o;
   if (p->__pyx_v__) {
     e = (*v)(p->__pyx_v__, a); if (e) return e;
   }
@@ -3422,12 +3314,12 @@ static int __pyx_tp_traverse_8serverAi___pyx_scope_struct_1_lpr_api(PyObject *o,
   return 0;
 }
 
-static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api = {
+static PyTypeObject __pyx_type_6server___pyx_scope_struct_1_lpr_api = {
   PyVarObject_HEAD_INIT(0, 0)
-  "serverAi.__pyx_scope_struct_1_lpr_api", /*tp_name*/
-  sizeof(struct __pyx_obj_8serverAi___pyx_scope_struct_1_lpr_api), /*tp_basicsize*/
+  "server.__pyx_scope_struct_1_lpr_api", /*tp_name*/
+  sizeof(struct __pyx_obj_6server___pyx_scope_struct_1_lpr_api), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_8serverAi___pyx_scope_struct_1_lpr_api, /*tp_dealloc*/
+  __pyx_tp_dealloc_6server___pyx_scope_struct_1_lpr_api, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -3454,7 +3346,7 @@ static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_8serverAi___pyx_scope_struct_1_lpr_api, /*tp_traverse*/
+  __pyx_tp_traverse_6server___pyx_scope_struct_1_lpr_api, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -3470,7 +3362,7 @@ static PyTypeObject __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_8serverAi___pyx_scope_struct_1_lpr_api, /*tp_new*/
+  __pyx_tp_new_6server___pyx_scope_struct_1_lpr_api, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -3501,17 +3393,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_serverAi(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_server(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_serverAi},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_server},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "serverAi",
+    "server",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -3552,20 +3444,19 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Hilmy_Izzulhaq, __pyx_k_Hilmy_Izzulhaq, sizeof(__pyx_k_Hilmy_Izzulhaq), 0, 0, 1, 0},
   {&__pyx_n_s_IMREAD_COLOR, __pyx_k_IMREAD_COLOR, sizeof(__pyx_k_IMREAD_COLOR), 0, 0, 1, 1},
   {&__pyx_kp_s_Image_must_be_jpg_or_png_format, __pyx_k_Image_must_be_jpg_or_png_format, sizeof(__pyx_k_Image_must_be_jpg_or_png_format), 0, 0, 1, 0},
-  {&__pyx_n_s_JSONResponse, __pyx_k_JSONResponse, sizeof(__pyx_k_JSONResponse), 0, 0, 1, 1},
   {&__pyx_n_s_LPR, __pyx_k_LPR, sizeof(__pyx_k_LPR), 0, 0, 1, 1},
   {&__pyx_kp_s_PNG, __pyx_k_PNG, sizeof(__pyx_k_PNG), 0, 0, 1, 0},
   {&__pyx_n_s_RedirectResponse, __pyx_k_RedirectResponse, sizeof(__pyx_k_RedirectResponse), 0, 0, 1, 1},
   {&__pyx_n_s_UploadFile, __pyx_k_UploadFile, sizeof(__pyx_k_UploadFile), 0, 0, 1, 1},
-  {&__pyx_n_s__11, __pyx_k__11, sizeof(__pyx_k__11), 0, 0, 1, 1},
   {&__pyx_kp_s__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 0, 1, 0},
-  {&__pyx_kp_s__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 0, 1, 0},
+  {&__pyx_kp_s__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 0, 1, 0},
+  {&__pyx_n_s__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 0, 1, 1},
   {&__pyx_n_s_aiLpr, __pyx_k_aiLpr, sizeof(__pyx_k_aiLpr), 0, 0, 1, 1},
   {&__pyx_n_s_ai_type, __pyx_k_ai_type, sizeof(__pyx_k_ai_type), 0, 0, 1, 1},
   {&__pyx_n_s_app_desc, __pyx_k_app_desc, sizeof(__pyx_k_app_desc), 0, 0, 1, 1},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_kp_s_arsa_server_1, __pyx_k_arsa_server_1, sizeof(__pyx_k_arsa_server_1), 0, 0, 1, 0},
-  {&__pyx_n_s_arsalpr, __pyx_k_arsalpr, sizeof(__pyx_k_arsalpr), 0, 0, 1, 1},
+  {&__pyx_n_s_arsalpr_cuda, __pyx_k_arsalpr_cuda, sizeof(__pyx_k_arsalpr_cuda), 0, 0, 1, 1},
   {&__pyx_n_s_await, __pyx_k_await, sizeof(__pyx_k_await), 0, 0, 1, 1},
   {&__pyx_n_s_b64encode, __pyx_k_b64encode, sizeof(__pyx_k_b64encode), 0, 0, 1, 1},
   {&__pyx_n_s_base64, __pyx_k_base64, sizeof(__pyx_k_base64), 0, 0, 1, 1},
@@ -3587,7 +3478,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_extension, __pyx_k_extension, sizeof(__pyx_k_extension), 0, 0, 1, 1},
   {&__pyx_n_s_failed, __pyx_k_failed, sizeof(__pyx_k_failed), 0, 0, 1, 1},
   {&__pyx_n_s_fastapi, __pyx_k_fastapi, sizeof(__pyx_k_fastapi), 0, 0, 1, 1},
-  {&__pyx_n_s_fastapi_responses, __pyx_k_fastapi_responses, sizeof(__pyx_k_fastapi_responses), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_filename, __pyx_k_filename, sizeof(__pyx_k_filename), 0, 0, 1, 1},
   {&__pyx_n_s_frombuffer, __pyx_k_frombuffer, sizeof(__pyx_k_frombuffer), 0, 0, 1, 1},
@@ -3616,7 +3506,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_lpr_api, __pyx_k_lpr_api, sizeof(__pyx_k_lpr_api), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_mainProses, __pyx_k_mainProses, sizeof(__pyx_k_mainProses), 0, 0, 1, 1},
-  {&__pyx_n_s_main_2, __pyx_k_main_2, sizeof(__pyx_k_main_2), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_name_2, __pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 0, 1, 1},
   {&__pyx_n_s_noPol, __pyx_k_noPol, sizeof(__pyx_k_noPol), 0, 0, 1, 1},
@@ -3636,8 +3525,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_run, __pyx_k_run, sizeof(__pyx_k_run), 0, 0, 1, 1},
   {&__pyx_n_s_send, __pyx_k_send, sizeof(__pyx_k_send), 0, 0, 1, 1},
   {&__pyx_n_s_server, __pyx_k_server, sizeof(__pyx_k_server), 0, 0, 1, 1},
-  {&__pyx_n_s_serverAi, __pyx_k_serverAi, sizeof(__pyx_k_serverAi), 0, 0, 1, 1},
-  {&__pyx_kp_s_serverAi_pyx, __pyx_k_serverAi_pyx, sizeof(__pyx_k_serverAi_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_server_pyx, __pyx_k_server_pyx, sizeof(__pyx_k_server_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_skor, __pyx_k_skor, sizeof(__pyx_k_skor), 0, 0, 1, 1},
   {&__pyx_n_s_split, __pyx_k_split, sizeof(__pyx_k_split), 0, 0, 1, 1},
   {&__pyx_n_s_starlette_responses, __pyx_k_starlette_responses, sizeof(__pyx_k_starlette_responses), 0, 0, 1, 1},
@@ -3668,7 +3556,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 61, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3678,79 +3566,71 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "serverAi.pyx":88
- * 
- * def main():
- *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])             # <<<<<<<<<<<<<<
- */
-  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_server, __pyx_kp_s_arsa_server_1); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_kp_s_AI_Developer, __pyx_kp_s_ARSA_Technology); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-
-  /* "serverAi.pyx":36
+  /* "server.pyx":35
  * )
  * 
  * @lpr.get("/", include_in_schema=False)             # <<<<<<<<<<<<<<
  * async def index():
  *     return RedirectResponse(url="/docs")
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s__7); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__8);
-  __Pyx_GIVEREF(__pyx_tuple__8);
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s__5); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "serverAi.pyx":37
+  /* "server.pyx":36
  * 
  * @lpr.get("/", include_in_schema=False)
  * async def index():             # <<<<<<<<<<<<<<
  *     return RedirectResponse(url="/docs")
  * 
  */
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_serverAi_pyx, __pyx_n_s_index, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_server_pyx, __pyx_n_s_index, 36, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 36, __pyx_L1_error)
 
-  /* "serverAi.pyx":41
+  /* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, Py_Ellipsis); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 41, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_tuple__7 = PyTuple_Pack(1, Py_Ellipsis); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "serverAi.pyx":40
+  /* "server.pyx":39
  *     return RedirectResponse(url="/docs")
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])             # <<<<<<<<<<<<<<
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  */
-  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_kp_s_v0_lpr); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__10);
-  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_v0_lpr); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__8);
+  __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "serverAi.pyx":41
+  /* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  */
-  __pyx_tuple__12 = PyTuple_Pack(26, __pyx_n_s_imOut, __pyx_n_s_superRes, __pyx_n_s_file, __pyx_n_s_extension, __pyx_n_s_contents, __pyx_n_s_nparr, __pyx_n_s_img, __pyx_n_s_processedImg, __pyx_n_s_platNomor, __pyx_n_s_latensi, __pyx_n_s_tipeOcr, __pyx_n_s_dictPlatNomor, __pyx_n_s_jumlahNopol, __pyx_n_s_statusBaca, __pyx_n_s_bbox, __pyx_n_s_noPol, __pyx_n_s_yakin, __pyx_n_s_x1, __pyx_n_s_y1, __pyx_n_s_x2, __pyx_n_s_y2, __pyx_n_s_dictPlatNomorKey, __pyx_n_s_dictOutput, __pyx_n_s__11, __pyx_n_s_encoded_img, __pyx_n_s_encoded_imgOut); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(26, __pyx_n_s_imOut, __pyx_n_s_superRes, __pyx_n_s_file, __pyx_n_s_extension, __pyx_n_s_contents, __pyx_n_s_nparr, __pyx_n_s_img, __pyx_n_s_processedImg, __pyx_n_s_platNomor, __pyx_n_s_latensi, __pyx_n_s_tipeOcr, __pyx_n_s_dictPlatNomor, __pyx_n_s_jumlahNopol, __pyx_n_s_statusBaca, __pyx_n_s_bbox, __pyx_n_s_noPol, __pyx_n_s_yakin, __pyx_n_s_x1, __pyx_n_s_y1, __pyx_n_s_x2, __pyx_n_s_y2, __pyx_n_s_dictPlatNomorKey, __pyx_n_s_dictOutput, __pyx_n_s__9, __pyx_n_s_encoded_img, __pyx_n_s_encoded_imgOut); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 26, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_server_pyx, __pyx_n_s_lpr_api, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 40, __pyx_L1_error)
+
+  /* "server.pyx":87
+ * 
+ * if __name__ == "__main__":
+ *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])             # <<<<<<<<<<<<<<
+ */
+  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_server, __pyx_kp_s_arsa_server_1); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_kp_s_AI_Developer, __pyx_kp_s_ARSA_Technology); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 26, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_serverAi_pyx, __pyx_n_s_lpr_api, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 41, __pyx_L1_error)
-
-  /* "serverAi.pyx":87
- * 
- * 
- * def main():             # <<<<<<<<<<<<<<
- *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
- */
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_serverAi_pyx, __pyx_n_s_main_2, 87, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3809,22 +3689,22 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_8serverAi___pyx_scope_struct__index) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6server___pyx_scope_struct__index) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_8serverAi___pyx_scope_struct__index.tp_print = 0;
+  __pyx_type_6server___pyx_scope_struct__index.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_8serverAi___pyx_scope_struct__index.tp_dictoffset && __pyx_type_8serverAi___pyx_scope_struct__index.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_8serverAi___pyx_scope_struct__index.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6server___pyx_scope_struct__index.tp_dictoffset && __pyx_type_6server___pyx_scope_struct__index.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_6server___pyx_scope_struct__index.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_8serverAi___pyx_scope_struct__index = &__pyx_type_8serverAi___pyx_scope_struct__index;
-  if (PyType_Ready(&__pyx_type_8serverAi___pyx_scope_struct_1_lpr_api) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_ptype_6server___pyx_scope_struct__index = &__pyx_type_6server___pyx_scope_struct__index;
+  if (PyType_Ready(&__pyx_type_6server___pyx_scope_struct_1_lpr_api) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api.tp_print = 0;
+  __pyx_type_6server___pyx_scope_struct_1_lpr_api.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_8serverAi___pyx_scope_struct_1_lpr_api.tp_dictoffset && __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_8serverAi___pyx_scope_struct_1_lpr_api.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6server___pyx_scope_struct_1_lpr_api.tp_dictoffset && __pyx_type_6server___pyx_scope_struct_1_lpr_api.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_6server___pyx_scope_struct_1_lpr_api.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_8serverAi___pyx_scope_struct_1_lpr_api = &__pyx_type_8serverAi___pyx_scope_struct_1_lpr_api;
+  __pyx_ptype_6server___pyx_scope_struct_1_lpr_api = &__pyx_type_6server___pyx_scope_struct_1_lpr_api;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3875,11 +3755,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initserverAi(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initserverAi(void)
+__Pyx_PyMODINIT_FUNC initserver(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initserver(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_serverAi(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_serverAi(void)
+__Pyx_PyMODINIT_FUNC PyInit_server(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_server(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -3946,13 +3826,15 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_serverAi(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_server(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3960,7 +3842,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_serverAi(PyObject *__pyx_pyinit_mo
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'serverAi' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'server' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -3975,7 +3857,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_serverAi(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_server(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -4012,7 +3894,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("serverAi", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("server", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -4030,14 +3912,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_serverAi) {
+  if (__pyx_module_is_main_server) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "serverAi")) {
-      if (unlikely(PyDict_SetItemString(modules, "serverAi", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "server")) {
+      if (unlikely(PyDict_SetItemString(modules, "server", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -4058,9 +3940,9 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "serverAi.pyx":1
+  /* "server.pyx":1
  * from xmlrpc.client import Boolean             # <<<<<<<<<<<<<<
- * import arsalpr as aiLpr
+ * import arsalpr_cuda as aiLpr
  * import uvicorn
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -4077,35 +3959,35 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":2
+  /* "server.pyx":2
  * from xmlrpc.client import Boolean
- * import arsalpr as aiLpr             # <<<<<<<<<<<<<<
+ * import arsalpr_cuda as aiLpr             # <<<<<<<<<<<<<<
  * import uvicorn
  * from fastapi import FastAPI, File, UploadFile
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_arsalpr, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_arsalpr_cuda, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_aiLpr, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":3
+  /* "server.pyx":3
  * from xmlrpc.client import Boolean
- * import arsalpr as aiLpr
+ * import arsalpr_cuda as aiLpr
  * import uvicorn             # <<<<<<<<<<<<<<
  * from fastapi import FastAPI, File, UploadFile
- * from fastapi.responses import JSONResponse
+ * from starlette.responses import RedirectResponse
  */
   __pyx_t_2 = __Pyx_Import(__pyx_n_s_uvicorn, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_uvicorn, __pyx_t_2) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":4
- * import arsalpr as aiLpr
+  /* "server.pyx":4
+ * import arsalpr_cuda as aiLpr
  * import uvicorn
  * from fastapi import FastAPI, File, UploadFile             # <<<<<<<<<<<<<<
- * from fastapi.responses import JSONResponse
  * from starlette.responses import RedirectResponse
+ * import numpy as np
  */
   __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4135,308 +4017,338 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "serverAi.pyx":5
+  /* "server.pyx":5
  * import uvicorn
  * from fastapi import FastAPI, File, UploadFile
- * from fastapi.responses import JSONResponse             # <<<<<<<<<<<<<<
- * from starlette.responses import RedirectResponse
- * import numpy as np
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_JSONResponse);
-  __Pyx_GIVEREF(__pyx_n_s_JSONResponse);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_JSONResponse);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_fastapi_responses, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_JSONResponse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_JSONResponse, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "serverAi.pyx":6
- * from fastapi import FastAPI, File, UploadFile
- * from fastapi.responses import JSONResponse
  * from starlette.responses import RedirectResponse             # <<<<<<<<<<<<<<
  * import numpy as np
  * import cv2
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_RedirectResponse);
   __Pyx_GIVEREF(__pyx_n_s_RedirectResponse);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_RedirectResponse);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_starlette_responses, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_RedirectResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_RedirectResponse);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_starlette_responses, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RedirectResponse, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_RedirectResponse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RedirectResponse, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":7
- * from fastapi.responses import JSONResponse
+  /* "server.pyx":6
+ * from fastapi import FastAPI, File, UploadFile
  * from starlette.responses import RedirectResponse
  * import numpy as np             # <<<<<<<<<<<<<<
  * import cv2
  * import base64
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":8
+  /* "server.pyx":7
  * from starlette.responses import RedirectResponse
  * import numpy as np
  * import cv2             # <<<<<<<<<<<<<<
  * import base64
  * 
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_cv2, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cv2, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_cv2, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cv2, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":9
+  /* "server.pyx":8
  * import numpy as np
  * import cv2
  * import base64             # <<<<<<<<<<<<<<
  * 
  * hostIpAddr = "127.0.0.1"
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_base64, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_base64, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_base64, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_base64, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "serverAi.pyx":11
+  /* "server.pyx":10
  * import base64
  * 
  * hostIpAddr = "127.0.0.1"             # <<<<<<<<<<<<<<
  * 
  * app_desc = """<h2>Try this app by uploading any image to `lpr/image`</h2>
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hostIpAddr, __pyx_kp_s_127_0_0_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hostIpAddr, __pyx_kp_s_127_0_0_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
 
-  /* "serverAi.pyx":13
+  /* "server.pyx":12
  * hostIpAddr = "127.0.0.1"
  * 
  * app_desc = """<h2>Try this app by uploading any image to `lpr/image`</h2>             # <<<<<<<<<<<<<<
  * Set query imOut= true or false
  * false mean no result image, true mean with result image<br>
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_app_desc, __pyx_kp_s_h2_Try_this_app_by_uploading_an) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_app_desc, __pyx_kp_s_h2_Try_this_app_by_uploading_an) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "serverAi.pyx":22
+  /* "server.pyx":21
  * by Hilmy Izzulhaq"""
  * 
  * lpr = FastAPI(             # <<<<<<<<<<<<<<
  *     title="ARSA LPR API DEMO",
  *     description=app_desc,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_FastAPI); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_FastAPI); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
-  /* "serverAi.pyx":23
+  /* "server.pyx":22
  * 
  * lpr = FastAPI(
  *     title="ARSA LPR API DEMO",             # <<<<<<<<<<<<<<
  *     description=app_desc,
  *     version="0.0.1",
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_title, __pyx_kp_s_ARSA_LPR_API_DEMO) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_title, __pyx_kp_s_ARSA_LPR_API_DEMO) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "serverAi.pyx":24
+  /* "server.pyx":23
  * lpr = FastAPI(
  *     title="ARSA LPR API DEMO",
  *     description=app_desc,             # <<<<<<<<<<<<<<
  *     version="0.0.1",
  *     contact={
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_app_desc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_app_desc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_description, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_description, __pyx_t_3) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_version, __pyx_kp_s_0_0_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_version, __pyx_kp_s_0_0_1) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "serverAi.pyx":27
+  /* "server.pyx":26
  *     version="0.0.1",
  *     contact={
  *         "name": "Hilmy Izzulhaq",             # <<<<<<<<<<<<<<
  *         "email": "halogas.ijul@gmail.com",
  *     },
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_name_2, __pyx_kp_s_Hilmy_Izzulhaq) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_email, __pyx_kp_s_halogas_ijul_gmail_com) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_contact, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_name_2, __pyx_kp_s_Hilmy_Izzulhaq) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_email, __pyx_kp_s_halogas_ijul_gmail_com) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_contact, __pyx_t_3) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":31
+  /* "server.pyx":30
  *     },
  *     license_info={
  *         "name": "Apache 2.0",             # <<<<<<<<<<<<<<
  *         "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
  *     },
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_name_2, __pyx_kp_s_Apache_2_0) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_url, __pyx_kp_s_https_www_apache_org_licenses_LI) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_license_info, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_name_2, __pyx_kp_s_Apache_2_0) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_url, __pyx_kp_s_https_www_apache_org_licenses_LI) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_license_info, __pyx_t_3) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":22
+  /* "server.pyx":21
  * by Hilmy Izzulhaq"""
  * 
  * lpr = FastAPI(             # <<<<<<<<<<<<<<
  *     title="ARSA LPR API DEMO",
  *     description=app_desc,
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lpr, __pyx_t_3) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lpr, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":36
+  /* "server.pyx":35
  * )
  * 
  * @lpr.get("/", include_in_schema=False)             # <<<<<<<<<<<<<<
  * async def index():
  *     return RedirectResponse(url="/docs")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_lpr); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_lpr); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_include_in_schema, Py_False) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__8, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_include_in_schema, Py_False) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":37
+  /* "server.pyx":36
  * 
  * @lpr.get("/", include_in_schema=False)
  * async def index():             # <<<<<<<<<<<<<<
  *     return RedirectResponse(url="/docs")
  * 
  */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_8serverAi_1index, NULL, __pyx_n_s_serverAi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_6server_1index, NULL, __pyx_n_s_server); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "serverAi.pyx":36
+  /* "server.pyx":35
  * )
  * 
  * @lpr.get("/", include_in_schema=False)             # <<<<<<<<<<<<<<
  * async def index():
  *     return RedirectResponse(url="/docs")
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_index, __pyx_t_2) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_index, __pyx_t_1) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "serverAi.pyx":41
+  /* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_File); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_File); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__2 = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":40
+  /* "server.pyx":39
  *     return RedirectResponse(url="/docs")
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])             # <<<<<<<<<<<<<<
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_lpr); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_lpr); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_post); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_post); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_LPR);
   __Pyx_GIVEREF(__pyx_n_s_LPR);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_LPR);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_tags, __pyx_t_1) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__10, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_LPR);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_tags, __pyx_t_2) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__8, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "serverAi.pyx":41
+  /* "server.pyx":40
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):             # <<<<<<<<<<<<<<
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  *     if not extension:
  */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_8serverAi_4lpr_api, NULL, __pyx_n_s_serverAi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_6server_4lpr_api, NULL, __pyx_n_s_server); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "serverAi.pyx":40
+  /* "server.pyx":39
  *     return RedirectResponse(url="/docs")
  * 
  * @lpr.post("/v0/lpr", tags=["LPR"])             # <<<<<<<<<<<<<<
  * async def lpr_api(imOut : Boolean, superRes : Boolean,  file: UploadFile = File(...)):
  *     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lpr_api, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lpr_api, __pyx_t_1) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "serverAi.pyx":87
+  /* "server.pyx":86
  * 
  * 
- * def main():             # <<<<<<<<<<<<<<
+ * if __name__ == "__main__":             # <<<<<<<<<<<<<<
  *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8serverAi_7main, NULL, __pyx_n_s_serverAi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_main_2, __pyx_t_2) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_main, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_4) {
 
-  /* "serverAi.pyx":1
+    /* "server.pyx":87
+ * 
+ * if __name__ == "__main__":
+ *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])             # <<<<<<<<<<<<<<
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_uvicorn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_run); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_lpr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+    __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_debug, Py_True) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_hostIpAddr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_host, __pyx_t_5) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_port, __pyx_int_5402) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+    __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_INCREF(__pyx_tuple__11);
+    __Pyx_GIVEREF(__pyx_tuple__11);
+    PyList_SET_ITEM(__pyx_t_5, 0, __pyx_tuple__11);
+    __Pyx_INCREF(__pyx_tuple__12);
+    __Pyx_GIVEREF(__pyx_tuple__12);
+    PyList_SET_ITEM(__pyx_t_5, 1, __pyx_tuple__12);
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_headers, __pyx_t_5) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "server.pyx":86
+ * 
+ * 
+ * if __name__ == "__main__":             # <<<<<<<<<<<<<<
+ *     uvicorn.run(lpr, debug=True, host=hostIpAddr, port=5402, headers=[("server", "arsa-server-1"), ("AI-Developer", "ARSA-Technology")])
+ */
+  }
+
+  /* "server.pyx":1
  * from xmlrpc.client import Boolean             # <<<<<<<<<<<<<<
- * import arsalpr as aiLpr
+ * import arsalpr_cuda as aiLpr
  * import uvicorn
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_5) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -4445,13 +4357,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init serverAi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init server", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init serverAi");
+    PyErr_SetString(PyExc_ImportError, "init server");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
