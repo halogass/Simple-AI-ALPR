@@ -1,100 +1,106 @@
 # Simple AI ALPR (Automatic License Plate Recognition)
 
-This is a simple AI-based License Plate Recognition (LPR) project developed by [ARSA Technology](https://arsa.technology). The project uses deep learning models for license plate detection and recognition, and includes optional super-resolution for improved accuracy on low-resolution images.
+Developed by [ARSA Technology](https://arsa.technology), this project is a lightweight, flexible, and efficient license plate recognition system tailored for deployment on a range of devices. It offers multiple inference backends including CPU, CUDA (GPU), and OpenVINO for edge computing.
 
-## Features
+## 🔍 Features
 
-- License plate detection and character recognition using YOLO-based models.
-- Optional super-resolution using ESPCN for enhanced image quality.
-- REST API server for easy integration.
-- Example client for testing with images.
-- Supports PNG and JPEG image formats.
+- ✅ Real-time License Plate Detection
+- 🧠 Multiple Inference Backends:
+  - `arsalpr_cpu.py`: for CPU-only environments
+  - `arsalpr_cuda.py`: for NVIDIA GPU acceleration (CUDA)
+  - `arsalpr_vino.py`: for Intel OpenVINO toolkit
+- 🔁 Client-server architecture for modular integration
+- 🧪 Sandbox mode for custom algorithm testing
+- 🚀 Cython-accelerated modules for speed optimization
 
-## Project Structure
+## 📁 Directory Structure
 
 ```
-arsaLpr/
-  arsalpr_cpu.py
-  arsalpr_cuda.py
-  arsalpr_vino.py
-  client.py
-  sandbox_algorithm.py
-  server.py
-  assets/
-    ESPCN_x4.pb
-    platnomor-tiny.cfg
-    platnomor-tiny.weights
-    platnomor-train_best.weights
-    platnomor.labels
-    response.jpg
-img_asset/
-  platnomor.jpg
-  platnomor1.png
-  platnomor3.png
-setupvars.sh
+Simple-AI-ALPR-main/
+├── arsaLpr/
+│   ├── arsalpr_cpu.py
+│   ├── arsalpr_cuda.py
+│   ├── arsalpr_vino.py
+│   ├── client.py
+│   ├── server.py
+│   ├── sandbox_algorithm.py
+│   └── Cython_version/
+│       ├── *.py / *.so
+│       └── assets/ (model weights and config)
+├── setupvars.sh
 ```
 
-## Getting Started
+## ⚙️ Installation
 
-### Requirements
+### 1. Clone the Repository
 
-- Python 3.7+
-- OpenCV (with dnn and dnn_superres modules)
-- FastAPI
-- Uvicorn
-- NumPy
-- Requests
-- Matplotlib
-
-Install dependencies:
-
-```sh
-pip install opencv-python-headless fastapi uvicorn numpy requests matplotlib
+```bash
+git clone https://github.com/arsa-technology/Simple-AI-ALPR.git
+cd Simple-AI-ALPR
 ```
 
-### Running the API Server
+### 2. Install Dependencies
 
-Start the API server:
+Make sure Python ≥3.8 is installed.
 
-```sh
-cd arsaLpr
-python server.py
+```bash
+pip install -r requirements.txt
 ```
 
-The server will be available at `http://127.0.0.1:5402`. API documentation is available at `/docs`.
+### 3. Run the System
 
-### Using the Client
+**Run with CPU:**
 
-Test the API with example images:
-
-```sh
-cd arsaLpr
-python client.py
+```bash
+python arsaLpr/arsalpr_cpu.py
 ```
 
-### API Usage
+**Run with CUDA:**
 
-Send a POST request to `/v0/lpr` with an image file:
-
-- `imOut`: `true` to include the result image (base64), `false` for JSON only.
-- `superRes`: `true` to enable super-resolution, `false` for faster processing.
-
-Example using `curl`:
-
-```sh
-curl -F "file=@../img_asset/platnomor.jpg" "http://127.0.0.1:5402/v0/lpr?imOut=true&superRes=false"
+```bash
+python arsaLpr/arsalpr_cuda.py
 ```
 
-## Model Files
+**Run with OpenVINO:**
 
-- `platnomor-tiny.cfg`, `platnomor-tiny.weights`, `platnomor-train_best.weights`: YOLO model files for detection.
-- `platnomor.labels`: Class labels for detection.
-- `ESPCN_x4.pb`: Super-resolution model.
+```bash
+python arsaLpr/arsalpr_vino.py
+```
 
-## License
+## 📦 Pre-trained Models
 
-This project is licensed under the Apache 2.0 License.
+Model configs and weights are stored under:
 
----
+```
+arsaLpr/Cython_version/assets/
+```
 
-Developed by [ARSA Technology](https://arsa.technology)
+These include:
+- YOLOv3-tiny based configuration for plate detection
+- Custom-trained weights for Indonesian license plates
+- ESPCN super-resolution model
+
+## 🛠️ Customization
+
+To experiment with custom algorithms, modify:
+
+```bash
+arsaLpr/sandbox_algorithm.py
+```
+
+To compile Cython modules:
+
+```bash
+cd arsaLpr/Cython_version
+python setup_compile.py build_ext --inplace
+```
+
+## 🧾 License
+
+This project is © 2025 ARSA Technology. All rights reserved. For licensing inquiries, please contact us at [arsa.technology/contact](https://arsa.technology).
+
+## 🌐 About ARSA Technology
+
+ARSA Technology is an Indonesia-based deep tech company developing cutting-edge AI and IoT solutions for smart infrastructure, security, and automation.
+
+Visit us at: [https://arsa.technology](https://arsa.technology)
