@@ -11,7 +11,6 @@ Developed by [ARSA Technology](https://arsa.technology), this project is a light
   - `arsalpr_vino.py`: for Intel OpenVINO toolkit
 - 🔁 Client-server architecture for modular integration
 - 🧪 Sandbox mode for custom algorithm testing
-- 🚀 Cython-accelerated modules for speed optimization
 
 ## 📁 Directory Structure
 
@@ -24,9 +23,7 @@ Simple-AI-ALPR-main/
 │   ├── client.py
 │   ├── server.py
 │   ├── sandbox_algorithm.py
-│   └── Cython_version/
-│       ├── *.py / *.so
-│       └── assets/ (model weights and config)
+│   └── assets/ (model weights and config)
 ├── setupvars.sh
 ```
 
@@ -72,7 +69,7 @@ python arsaLpr/arsalpr_vino.py
 Model configs and weights are stored under:
 
 ```
-arsaLpr/Cython_version/assets/
+arsaLpr/assets/
 ```
 
 These include:
@@ -86,13 +83,6 @@ To experiment with custom algorithms, modify:
 
 ```bash
 arsaLpr/sandbox_algorithm.py
-```
-
-To compile Cython modules:
-
-```bash
-cd arsaLpr/Cython_version
-python setup_compile.py build_ext --inplace
 ```
 
 ## 🧾 License
